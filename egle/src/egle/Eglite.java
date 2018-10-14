@@ -11,27 +11,27 @@ import java.util.Scanner;
  *
  * @author Baiba
  */
-public class eglite {
+public class Eglite {
 
     public void Zimet2() {
         String a = " ";
         String b = "";
-        String c = "";
+        //String c = "";
 
         System.out.println("Skaitlis no 1-50: ");
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
 
         if (t > 0 && t < 51) {
-            for (int f = t; f > 0; f--) {
+            for (int i = t; i > 0; i--) {
 
-                for (int n = f; n > 0; n--) {
+                for (int n = i; n > 0; n--) {
                     System.out.print(a);
                 }
                 b = b + "*";
                 System.out.print(b);
-                                System.out.print(c);
-                c = c + "*";
+                System.out.print(b); //(c), ja vienu zvaigznīti grib augšā
+                //c = c + "*";
 
                 System.out.println("");
             }
@@ -40,6 +40,7 @@ public class eglite {
         }
 
     }
+    
 
 //    public void Zimet() {
 //        String a = "";

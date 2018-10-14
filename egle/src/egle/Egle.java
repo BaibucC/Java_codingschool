@@ -15,7 +15,7 @@ public class Egle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        eglite zimet = new eglite();
+        Eglite zimet = new Eglite();
         zimet.Zimet2();
     }
     
