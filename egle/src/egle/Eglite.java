@@ -15,8 +15,7 @@ public class Eglite {
 
     public void Zimet2() {
         String a = " ";
-        String b = "";
-        //String c = "";
+        String b = "*";
 
         System.out.println("Skaitlis no 1-50: ");
         Scanner sc = new Scanner(System.in);
@@ -28,19 +27,14 @@ public class Eglite {
                 for (int n = i; n > 0; n--) {
                     System.out.print(a);
                 }
-                b = b + "*";
                 System.out.print(b);
-                System.out.print(b); //(c), ja vienu zvaigznīti grib augšā
-                //c = c + "*";
-
+                b = b + "**";
                 System.out.println("");
             }
         } else {
             System.out.println("Skaitlim jābūt no 1 līdz 50!");
         }
-
     }
-    
 
 //    public void Zimet() {
 //        String a = "";
