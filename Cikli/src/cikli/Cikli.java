@@ -17,11 +17,11 @@ public class Cikli {
     public static void main(String[] args) {
         Piemeri piem = new Piemeri();
         //piem.Meginajums();
+        piem.CitiCikli();
         Uzdevumi uzd = new Uzdevumi();
         //uzd.Desmit();
         //uzd.Zvaigzne();
         //uzd.Minesana();
-        piem.CitiCikli();
 
     }
 

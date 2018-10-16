@@ -40,7 +40,7 @@ public class Piemeri {
         do {
             System.out.println("Hello world");
             ievade = sc.nextLine();
-        }while(!ievade.equals("iziet"));
+        } while (!ievade.equals("iziet"));
     }
 
 }
