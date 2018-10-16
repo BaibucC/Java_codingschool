@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Eglite {
 
     public void Zimet2() {
-        String a = " ";
         String b = "*";
 
         System.out.println("Skaitlis no 1-50: ");
@@ -25,7 +24,7 @@ public class Eglite {
             for (int i = t; i > 0; i--) {
 
                 for (int n = i; n > 0; n--) {
-                    System.out.print(a);
+                    System.out.print(" ");
                 }
                 System.out.print(b);
                 b = b + "**";

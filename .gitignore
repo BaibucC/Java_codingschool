@@ -21,3 +21,9 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+/JaunaEgle/nbproject/private/
+/JavaApplication24/nbproject/private/
+/JaunaEgle/build/
+/iGuiTest/nbproject/private/
+/GuiTest/nbproject/private/
+/GuiTest/build/
