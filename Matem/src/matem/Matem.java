@@ -30,11 +30,7 @@ public class Matem {
 
         return num;
     }
-    
-    /*Math.pow(2, 4);
-this mean 2 to the power 4 (2^4)
-answer = 16 */
-    
+       
     
 
     public static void main(String[] args) {
