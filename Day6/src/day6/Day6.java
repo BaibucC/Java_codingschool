@@ -22,34 +22,42 @@ public class Day6 {
 //            double skaitlis1 = SkaitlaIevade();
 //            double skaitlis2 = SkaitlaIevade();
 //            int pakape = PakapesIevade();
-
         String izvele = ""; //nodefinē tukšumu, lai var salīdzināt
         while (!izvele.equals("iziet")) {
 
-            System.out.println("Saskaitīt (+), atņemt (-) vai kāpināt (*)?");
+            System.out.println("Saskaitīt (+), atņemt (-), kāpināt (*) vai faktoriāls (f)?");
             System.out.println("(Rakstīt 'iziet', lai izietu.)");
             Scanner sc = new Scanner(System.in);
             izvele = sc.nextLine();
 
             Aprekini sask = new Aprekini();
+            double skaitlis1, skaitlis2;
+            int pakape;
+            int fakt;
 
             switch (izvele) {
                 case "+": {
-                    double skaitlis1 = SkaitlaIevade();
-                    double skaitlis2 = SkaitlaIevade();
+                    skaitlis1 = SkaitlaIevade();
+                    skaitlis2 = SkaitlaIevade();
                     System.out.println("Summa ir: " + sask.Saskaitit(skaitlis1, skaitlis2) + "\n");
                     break;
                 }
                 case "-": {
-                    double skaitlis1 = SkaitlaIevade();
-                    double skaitlis2 = SkaitlaIevade();
+                    skaitlis1 = SkaitlaIevade();
+                    skaitlis2 = SkaitlaIevade();
                     System.out.println("Atņemšanas rezultāts ir: " + sask.Atnemt(skaitlis1, skaitlis2) + "\n");
                     break;
                 }
                 case "*": {
-                    double skaitlis1 = SkaitlaIevade();
-                    int pakape = PakapesIevade();
+                    skaitlis1 = SkaitlaIevade();
+                    pakape = PakapesIevade();
                     System.out.println("Kāpināšanas rezultāts ir: " + sask.Kapinasana(skaitlis1, pakape) + "\n");
+                    break;
+                }
+                case "f": {
+                    System.out.println("Ievadiet skaitli: ");
+                    fakt = sc.nextInt();
+                    System.out.println("Faktoriāls ir: " + sask.Faktor(fakt) + "\n");
                     break;
                 }
                 case "iziet": {
@@ -63,6 +71,9 @@ public class Day6 {
         }
     }
 
+    //faktoriālus uztaisīt. ievada vienu skaitli
+    //4 = 4+3+2+1, 
+    
     public static double SkaitlaIevade() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ievadiet skaitli! ");

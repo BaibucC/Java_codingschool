@@ -21,11 +21,42 @@ public class Aprekini {
         return result;
     }
 
-    public double Kapinasana(double a, int pakape) {
-        double d = a;
-        for (int i = pakape - 1; i > 0; i--) {
-            a = a * d;
+    public int Faktor(int a) {
+        /*int result = a;
+        for (int i = 1; a > i; i++){
+            result = result*(a-1);
+            System.out.println(a + "=" + "result ir" + result);
+            a--;
         }
-        return a;
+        return result;*/
+        /*mans variants, kas strada
+        int result = a;
+        for (int i = a; i > 1; i--) {
+            result = result * i;
+            //System.out.println(a + "=" + "result ir" + result);
+        }
+        return result;*/
+        
+        
+        int result = 1;
+        for (int i = 1; i < a + 1; i++) {
+            result = result * i;
+        }
+        return result;
+
+    }
+
+    public double Kapinasana(double a, int pakape) {
+        /*double result = a;
+        for (int i = pakape - 1; i > 0; i--) {
+            a = result * a;
+        }
+        return a; */
+
+        double result = a;
+        for (int i = 1; i < pakape; i++) {
+            result *= a; // tas pats, kas result = a*a;
+        }
+        return result;
     }
 }

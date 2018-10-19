@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arrays;
+package day7;
 
 /**
  *
- * @author Baiba
+ * @author user
  */
-public class Arrays {
+public class Day7 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+//datu struktūras - masīvi
+        Piemeri piem = new Piemeri();
+        piem.Masīvs();        
     }
     
 }

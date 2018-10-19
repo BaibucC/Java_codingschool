@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 /OOPsBasics/build/
 /MiddleChar/nbproject/private/
 /MiddleChar/build/
+<<<<<<< HEAD
 /ddd/nbproject/private/
 /try/Lecture7_desas/nbproject/private/
 /try/Lecture7_desas/build/
@@ -50,3 +51,7 @@ $RECYCLE.BIN/
 /Arrays/nbproject/private/
 /Arrays/build/
 /Strings/nbproject/private/
+=======
+/Day7/nbproject/private/
+/Day7/build/
+>>>>>>> 0278ce55f202ad88414eab940bdd5d67fd5f5d04
