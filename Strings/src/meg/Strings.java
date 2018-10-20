@@ -28,14 +28,17 @@ public class Strings {
         for (int i = 0; i < vards.length(); i++) {
             System.out.println(array[i]);
         }
+        System.out.println("3.burts ir: " + array[3]);
 
+        
+        
         //apgriešana
-        String vards1 = "    zebiekste   ";
-        System.out.println("Pirms apgriešanas " + vards1);
-        System.out.println("Pēc apgriešans: " + vards1.trim());
-
-        String message = String.join("*", "Šodien", "ir", "labs", "laiks + " + vards + " + " + vards1.trim());
-        System.out.println(message);
+//        String vards1 = "    zebiekste   ";
+//        System.out.println("Pirms apgriešanas " + vards1);
+//        System.out.println("Pēc apgriešans: " + vards1.trim());
+//
+//        String message = String.join("*", "Šodien", "ir", "labs", "laiks + " + vards + " + " + vards1.trim());
+//        System.out.println(message);
 
     }
 

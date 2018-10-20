@@ -3,25 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package day7;
+package vardaminesana;
 
 /**
  *
  * @author user
  */
-public class Day7 {
+public class VardaMinesana {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//datu struktūras - masīvi
-        Piemeri piem = new Piemeri();
-        piem.Masīvs(); 
-        System.out.println("");
-        System.out.println("Vidējā aprēķins no iedavītajiem skatiļiem!");
-        Piemeri videjais = new Piemeri();
-        videjais.Udevums();
+        minesana min= new minesana();
+        min.minesana();
     }
     
 }
