@@ -27,8 +27,8 @@ public class Boolean {
         System.out.println("Skaitlis:");
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
-        boolean value = true;
-        value = a >= 5;
+        //boolean value = true;
+        boolean value = a >= 5;
 
         if (value) {
             System.out.println("ir");
