@@ -17,9 +17,7 @@ public class minesana {
     char burts;
     char[] tukss;
     char[] array;
-    //boolean vaiPilns;
-    boolean vaiPilns = tukss == array;
-    
+    boolean vaiPilns = true;
 
     public void VisiLielie() {
         if (Character.isLowerCase(burts)) {
@@ -35,6 +33,9 @@ public class minesana {
                 tukss[i] = array[i];
                 System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4]);
                 System.out.println(tukss[0] + " " + tukss[1] + " " + tukss[2] + " " + tukss[3] + " " + tukss[4]);
+            }
+            if (tukss == array) {
+                vaiPilns = true;
             }
         }
         //System.out.print(tukss);
@@ -60,6 +61,9 @@ public class minesana {
             System.out.println("\nIevadiet burtu!");
             burts = sc.next().charAt(0);
             this.Parbaude();
+            if(vaiPilns){
+                System.out.println("pilns");
+            }
         }
 
     }
