@@ -9,13 +9,50 @@ package thor;
  *
  * @author Baiba
  */
-public class Thor {
+import java.util.*;
+import java.io.*;
+import java.math.*;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+class Player {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int lightX = in.nextInt(); // the X position of the light of power
+        int lightY = in.nextInt(); // the Y position of the light of power
+        int initialTX = in.nextInt(); // Thor's starting X position
+        int initialTY = in.nextInt(); // Thor's starting Y position
+
+        //lai vieglāk - īsāki mainīgo nosaukumi
+        int x = lightX;
+        int y = lightY;
+        int tx = initialTX;
+        int ty = initialTY;
+
+        // game loop
+        while (true) {
+            String a = "";
+            String b = "";
+            int remainingTurns = in.nextInt(); // The remaining amount of turns Thor can move. Do not remove this line.
+            if (ty < y) {
+                ty = ty + 1;
+                a = "S";
+            }
+            if (ty > y) {
+                ty = ty - 1;
+                a = "N";
+            }
+            if (tx < x) {
+                tx = tx + 1;
+                b = "E";
+            }
+            if (tx > x) {
+                tx = tx - 1;
+                b = "W";
+            }
+
+            System.out.println(a + b);
+
+        }
+
     }
-    
 }
