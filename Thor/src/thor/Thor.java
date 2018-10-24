@@ -30,9 +30,11 @@ class Player {
 
         // game loop
         while (true) {
+            int remainingTurns = in.nextInt(); // The remaining amount of turns Thor can move. Do not remove this line.
+
             String a = "";
             String b = "";
-            int remainingTurns = in.nextInt(); // The remaining amount of turns Thor can move. Do not remove this line.
+
             if (ty < y) {
                 ty = ty + 1;
                 a = "S";
