@@ -5,7 +5,6 @@
  */
 package temperatures;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -14,90 +13,83 @@ import java.util.Scanner;
  */
 public class Temperatures {
 
-    void bubbleSort(int arr[]) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    // swap temp and arr[i] 
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-    /* Prints the array */
-//    void printArray(int arr[]) {
-//        int n = arr.length;
-//        for (int i = 0; i < n; ++i) {
-//            System.out.print(arr[i] + " ");
-//        }
-//        System.out.println();
-//    }
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(); // the number of temperatures to analyse
+        int arr[] = new int[n];
+        int res = 0; // default value
 
-        Temperatures ob = new Temperatures();
-        int arr[] = {64, -34, 25, -12, 22, 11, -1, 125, -9};
-        //ob.bubbleSort(arr);
-        //System.out.println("Sorted array");
-        //ob.printArray(arr);
-        System.out.println("");
-        int pos = arr[0];
-        int neg = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                if (arr[i] < pos) {
-                    pos = arr[i];
-                }
-            }
-            if (arr[i] < 0) {
-                if (arr[i] > neg) {
-                    neg = arr[i];
-                }
-            }
-
+        //creates an array of temperatures
+        for (int i = 0; i < n; i++) {
+            int t = in.nextInt(); // a temperature expressed as an integer ranging from -273 to 5526
+            arr[i] = t;
         }
-        System.out.println(pos);
-        System.out.println(neg);
 
-//        int arrp[] = new int[arr.length]; //pos
-//        int arrn[] = new int[arr.length]; //neg
-//
-//        for (int i = 0; i < arr.length; i++) {
-//            System.out.println(Arrays.toString(arr));
-//            for (int j = 0; j < arr.length; j++) {
-//                System.out.println("pos arrays ir: " + Arrays.toString(arrp));
-//                System.out.println("neg arrays ir: " + Arrays.toString(arrn));
-//                if (arr[i] > 0) {
-//
-//                    arrp[j] = arr[i];
-//                    System.out.println("j ir:" + j + "   un i ir:" + i);
-//
-//                    System.out.println("poz ir " + arrp[j]);
-//                }
-//
-//                if (arr[i] < 0) {
-//                    arrn[j] = arr[i];
-//                    System.out.println("j neg ir:" + j + "   un i neg ir:" + i);
-//
-//                    System.out.println("neg ir " + arrn[j]);
-//                }
-//                i++;
-//            }
-//
-//        }
-//        System.out.println("pos arrays ir: " + Arrays.toString(arrp));
-//        System.out.println("neg arrays ir: " + Arrays.toString(arrn));
-//
-//        for (int i = 0; i < arrp.length; i++) {
-//            int pos = 0;
-//            if (arrp[i] > 0) {
-//                pos = arrp[i];
-//
-//            }
-//        }
+        
+        //loop for checking every instance of the array
+        if(n>0){
+        int resp = arr[0]; //default value for comparing
+        int resn = arr[0]; //default value for comparing
+        for (int i = 0; i < arr.length; i++) {
+
+            //if positive temperature
+                if (arr[i] > 0) {
+                    if (arr[i] == resp) {
+                        resp = arr[i];
+                    }
+                    if (arr[i] < resp) {
+                        resp = arr[i];
+                    }
+                    if (arr[i] > resp) {
+                        resp = resp;
+                    }
+                    if (arr[i] > resp && resp < 0) {
+                        resp = arr[i];
+                    }
+                   // System.out.println("arr[i] ir:" + arr[i] + "resp ir:" + resp);
+                }
+            
+            //if negative temperature
+            if (arr[i] < 0) {
+            if (Math.abs(arr[i]) < Math.abs(resn)) {
+                    resn = arr[i];
+            }
+            if (Math.abs(arr[i]) > Math.abs(resn) && resn < 0) {
+                    resn = resn;
+            }
+            if (Math.abs(arr[i]) > Math.abs(resn) && resn > 0) {
+                    resn = arr[i];
+            }
+            }
+
+            //results are:
+            }
+            if(resp==Math.abs(resn)){
+                res = resp;
+            }
+            if(resp<Math.abs(resn)&&resp>0){
+                res = resp;
+            }
+            if(resp<Math.abs(resn)&&resp<0){
+                res = resp;
+            }
+            if(resp<resn){
+                res = resn;
+            }
+            if(resp>Math.abs(resn)){
+                res = resn;
+            }
+            
+
+            System.out.println(res);
+            }
+            
+            
+            //if no temperatures are provided
+            if(n==0){
+            System.out.println(0);
+        }
+        
     }
 
 }

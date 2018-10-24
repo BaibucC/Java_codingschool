@@ -63,6 +63,17 @@ $RECYCLE.BIN/
 /VardaMinesana/build/
 /Random/nbproject/private/
 /Random/build/
+<<<<<<< HEAD
 /Triforce/nbproject/private/
 /Triforce/build/
 /Temperatures/nbproject/private/
+/Temperatures/build/
+=======
+/Day10_console/nbproject/private/
+/Day10_console/build/
+/Day10_GUI/nbproject/private/
+/Day10_GUI/build/
+>>>>>>> f91162c492bf2c67157d0feac1d35cf6953d7bb8
+/Game/nbproject/private/
+/Game/build/
+/Thor/nbproject/private/
