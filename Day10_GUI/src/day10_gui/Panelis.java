@@ -32,10 +32,12 @@ public class Panelis extends javax.swing.JPanel {
         poga = new javax.swing.JButton();
         lauks2 = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        pogucis = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
         lauks.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 18)); // NOI18N
+        lauks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lauks.setText("Teksta parbaude");
 
         poga.setText("Pārbaudīt");
@@ -48,25 +50,36 @@ public class Panelis extends javax.swing.JPanel {
 
         lauks2.setToolTipText("Rakstiet šeit!");
 
+        pogucis.setText("pogucis");
+        pogucis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pogucisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addGap(0, 135, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lauks2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(poga, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(125, 125, 125))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pogucis)
+                .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(lauks2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(lauks)))
-                .addGap(125, 125, 125))
+                        .addGap(290, 290, 290)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lauks, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,29 +92,27 @@ public class Panelis extends javax.swing.JPanel {
                 .addComponent(poga, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(pogucis)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void pogaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pogaActionPerformed
         String teksts = lauks2.getText();
-        
-        if(teksts.length()>7){
+
+        if (teksts.length() > 7) {
             lauks.setText("**");
-        }else{
+        } else {
             lauks.setText("*");
         }
-        
-        
 
-        
-        
-        //cilvēks ievada skaitli un to tad pārbauda
-
-        
-        
-        //lielāks par 7 ** 5, mazāks *
     }//GEN-LAST:event_pogaActionPerformed
+
+    private void pogucisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pogucisActionPerformed
+        String teksts2 = lauks2.getText();
+        lauks.setText(teksts2);
+    }//GEN-LAST:event_pogucisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -110,5 +121,6 @@ public class Panelis extends javax.swing.JPanel {
     private javax.swing.JLabel lauks;
     private javax.swing.JTextField lauks2;
     private javax.swing.JButton poga;
+    private javax.swing.JButton pogucis;
     // End of variables declaration//GEN-END:variables
 }
