@@ -17,7 +17,8 @@ public class minesana {
     char burts;
     char[] tukss;
     char[] array;
-    boolean vaiPilns = true;
+    boolean vaiTukss = true;
+  //  boolean vaiPilns = true;
 
     public void VisiLielie() {
         if (Character.isLowerCase(burts)) {
@@ -31,16 +32,24 @@ public class minesana {
             this.VisiLielie();
             if (this.burts == array[i]) {
                 tukss[i] = array[i];
-                System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4]);
-                System.out.println(tukss[0] + " " + tukss[1] + " " + tukss[2] + " " + tukss[3] + " " + tukss[4]);
+                //System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4]);
             }
-            if (tukss == array) {
-                vaiPilns = true;
+            //this.vaiTukss();
+        }
+        System.out.println(tukss[0] + " " + tukss[1] + " " + tukss[2] + " " + tukss[3] + " " + tukss[4]);
+
+//System.out.print(tukss);
+    }
+
+    public boolean vaiTukss() {
+        for (int i = 0; i < tukss.length; i++) {
+            if (tukss[i] == '*') {
+                return true;
             }
         }
-        //System.out.print(tukss);
-
+        return false;
     }
+
 
     public void minesana() {
         System.out.println("Ievadiet vārdu: ");
@@ -54,14 +63,17 @@ public class minesana {
             tukss[i] = '*';
         }
         System.out.println(tukss);
-        //System.out.println(array);
 
-        System.out.println(!vaiPilns);
-        while (vaiPilns) {
+        System.out.println(vaiTukss);
+
+        while (vaiTukss) {
             System.out.println("\nIevadiet burtu!");
             burts = sc.next().charAt(0);
             this.Parbaude();
-            if(vaiPilns){
+            System.out.println(tukss);
+            System.out.println(vaiTukss);
+            //vaiTukss();
+            if (!vaiTukss) {
                 System.out.println("pilns");
             }
         }
