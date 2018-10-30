@@ -28,6 +28,9 @@ public class Aprekini {
 
     public double Div(double a, double b) {
         double result = a / b;
+        result = result * 100000;
+        result = Math.round(result);
+        result = result / 100000;
         return result;
     }
 
