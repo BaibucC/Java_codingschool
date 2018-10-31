@@ -13,7 +13,7 @@ public class Kalkulators extends javax.swing.JPanel {
 
     private String num1;
     private String action;
-    private boolean finalRez;
+    private boolean finalRes;
     private boolean actionChosen;
 
     public Kalkulators() {
@@ -50,6 +50,7 @@ public class Kalkulators extends javax.swing.JPanel {
         div = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         clear = new javax.swing.JButton();
+        xdelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(212, 212, 109));
 
@@ -243,6 +244,17 @@ public class Kalkulators extends javax.swing.JPanel {
             }
         });
 
+        xdelete.setBackground(new java.awt.Color(153, 153, 0));
+        xdelete.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        xdelete.setForeground(new java.awt.Color(51, 51, 0));
+        xdelete.setText("X");
+        xdelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        xdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xdeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -280,7 +292,9 @@ public class Kalkulators extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(div, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(plus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(plus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,7 +329,9 @@ public class Kalkulators extends javax.swing.JPanel {
                         .addComponent(poga10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(minus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +406,7 @@ public class Kalkulators extends javax.swing.JPanel {
         Aprekini sum = new Aprekini();
         double result = 0;
 
-        if (!finalRez) {
+        if (!finalRes) {
             switch (action) {
                 case "sum":
                     result = sum.Sum(number1, number2);
@@ -408,11 +424,11 @@ public class Kalkulators extends javax.swing.JPanel {
             calc.setText(String.valueOf(result));
         }
 
-        if (finalRez) {
+        if (finalRes) {
             calc.setText("");
         }
 
-        finalRez = true;
+        finalRes = true;
     }//GEN-LAST:event_resultActionPerformed
 
     private void multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiActionPerformed
@@ -431,19 +447,27 @@ public class Kalkulators extends javax.swing.JPanel {
         calc.setText("");
     }//GEN-LAST:event_clearActionPerformed
 
+    private void xdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xdeleteActionPerformed
+        if (!finalRes) {
+            String xdelete = calc.getText();
+            xdelete = xdelete.substring(0, xdelete.length() - 1);
+            calc.setText(xdelete);
+        }
+    }//GEN-LAST:event_xdeleteActionPerformed
+
     private void setElementText(String value) {
-        if (finalRez) {
+        if (finalRes) {
             if (value.equals("0")) {
                 calc.setText("");
             }
             calc.setText("");
-            finalRez = false;
+            finalRes = false;
         }
         if (actionChosen) {
             calc.setText("");
             actionChosen = false;
         }
-        if (!finalRez) {
+        if (!finalRes) {
             if (value.equals("0") && calc.getText().equals("")) {
                 calc.setText("");
             } else {
@@ -472,5 +496,6 @@ public class Kalkulators extends javax.swing.JPanel {
     private javax.swing.JButton poga8;
     private javax.swing.JButton poga9;
     private javax.swing.JButton result;
+    private javax.swing.JButton xdelete;
     // End of variables declaration//GEN-END:variables
 }
