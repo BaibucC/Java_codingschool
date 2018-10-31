@@ -13,11 +13,17 @@ public class Aprekini {
 
     public double Sum(double a, double b) {
         double result = a + b;
+        result = result * 100000;
+        result = Math.round(result);
+        result = result / 100000;
         return result;
     }
 
     public double Minus(double a, double b) {
         double result = a - b;
+        result = result * 100000;
+        result = Math.round(result);
+        result = result / 100000;
         return result;
     }
 
