@@ -17,42 +17,50 @@ public class Rivers {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        long resultFinal = 123;
+        String number1s = String.valueOf(resultFinal);
+        long result;
 
-        String number1s = "12365";
-        long num = 124;
-        number1s = String.valueOf(num);
-        char[] chararray = number1s.toCharArray();
-        int[] intarray = new int [number1s.length()];
-        
-        //skaitli pārveido par karakteru listi
-        for (int i =0; i < number1s.length(); i++){
-            intarray[i] = chararray[i];
+        //array1
+        long[] array1 = new long[20];
+        array1[0] = resultFinal;
+        for (int i = 1; i < array1.length; i++) {
+            number1s = String.valueOf(resultFinal);
+            result = Long.valueOf(String.valueOf(number1s.charAt(0)));
+            for (int j = 1; j < number1s.length(); j++) {
+                result = result + Long.valueOf(String.valueOf(number1s.charAt(j)));
+            }
+            resultFinal = resultFinal + result;
+            array1[i] = resultFinal;
+            System.out.println("result: " + resultFinal + "  = num: " + resultFinal + " + kaka: " + result);
         }
-        System.out.println(Arrays.toString(intarray));
-        int a = intarray[0];
-        int b = intarray[1];
-        int c = intarray[2];
-        
-        System.out.println(a + " " + b + " " + c);
-        
-        
-        //num = Long.parseLong(number1s);
-        //System.out.println(number1s);
-        
-//        long[] arr1 = new long[5];
-//        System.err.println("Debug messages...");
-//        for (int i = 0; i < arr1.length; i++) {
-//            arr1[i] = 124;
-//
-//            arr1[i] = Long.parseLong(number1s);
-//            System.out.println(number1s);
-//            
-//        }
+        System.out.println(Arrays.toString(array1));
 
-        //         String number1 = arr[i].toString();
-        // System.out.println(number1);
-//long val = Long.valueOf(str);
-        //System.out.println("42");
+        //array2
+        long resultFinal2 = 129;
+        long[] array2 = new long[20];
+        array2[0] = resultFinal2;
+        for (int i = 1; i < array1.length; i++) {
+            number1s = String.valueOf(resultFinal2);
+            result = Long.valueOf(String.valueOf(number1s.charAt(0)));
+            for (int j = 1; j < number1s.length(); j++) {
+                result = result + Long.valueOf(String.valueOf(number1s.charAt(j)));
+            }
+            resultFinal2 = resultFinal2 + result;
+            array2[i] = resultFinal2;
+            System.out.println("result: " + resultFinal2 + "  = num: " + resultFinal2 + " + kaka: " + result);
+        }
+        System.out.println(Arrays.toString(array2));
+        
+        //compare arrays
+        for (int i = 0; i < array1.length; i++){
+            for (int j = 0; j < array2.length; j++){
+                if (array1[i] == array2[j]){
+                    System.out.println("sakrīt");
+                    System.out.println(array1[i]);
+                }
+            }
+        }
     }
 
 }

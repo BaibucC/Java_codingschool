@@ -472,7 +472,9 @@ public class Kalkulators extends javax.swing.JPanel {
     private void dotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dotActionPerformed
         if (calc.getText().equals("") || finalRes || actionChosen) {
             setElementText("0.");
-        } else{
+        } else if (calc.getText().contains(".")) {
+            setElementText("");
+        } else {
             setElementText(".");
         }
     }//GEN-LAST:event_dotActionPerformed
