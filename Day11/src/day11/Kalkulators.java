@@ -53,101 +53,101 @@ public class Kalkulators extends javax.swing.JPanel {
         xdelete = new javax.swing.JButton();
         dot = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(212, 212, 109));
+        setBackground(new java.awt.Color(204, 204, 204));
 
-        poga1.setBackground(new java.awt.Color(153, 153, 0));
-        poga1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga1.setForeground(new java.awt.Color(255, 255, 255));
+        poga1.setBackground(new java.awt.Color(216, 216, 216));
+        poga1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga1.setForeground(new java.awt.Color(102, 102, 0));
         poga1.setText("1");
-        poga1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga1ActionPerformed(evt);
             }
         });
 
-        poga2.setBackground(new java.awt.Color(153, 153, 0));
-        poga2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga2.setForeground(new java.awt.Color(255, 255, 255));
+        poga2.setBackground(new java.awt.Color(216, 216, 216));
+        poga2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga2.setForeground(new java.awt.Color(102, 102, 0));
         poga2.setText("2");
-        poga2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga2ActionPerformed(evt);
             }
         });
 
-        poga3.setBackground(new java.awt.Color(153, 153, 0));
-        poga3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga3.setForeground(new java.awt.Color(255, 255, 255));
+        poga3.setBackground(new java.awt.Color(216, 216, 216));
+        poga3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga3.setForeground(new java.awt.Color(102, 102, 0));
         poga3.setText("3");
-        poga3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga3ActionPerformed(evt);
             }
         });
 
-        poga4.setBackground(new java.awt.Color(153, 153, 0));
-        poga4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga4.setForeground(new java.awt.Color(255, 255, 255));
+        poga4.setBackground(new java.awt.Color(216, 216, 216));
+        poga4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga4.setForeground(new java.awt.Color(102, 102, 0));
         poga4.setText("4");
-        poga4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga4ActionPerformed(evt);
             }
         });
 
-        poga5.setBackground(new java.awt.Color(153, 153, 0));
-        poga5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga5.setForeground(new java.awt.Color(255, 255, 255));
+        poga5.setBackground(new java.awt.Color(216, 216, 216));
+        poga5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga5.setForeground(new java.awt.Color(102, 102, 0));
         poga5.setText("5");
-        poga5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga5ActionPerformed(evt);
             }
         });
 
-        poga6.setBackground(new java.awt.Color(153, 153, 0));
-        poga6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga6.setForeground(new java.awt.Color(255, 255, 255));
+        poga6.setBackground(new java.awt.Color(216, 216, 216));
+        poga6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga6.setForeground(new java.awt.Color(102, 102, 0));
         poga6.setText("6");
-        poga6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga6ActionPerformed(evt);
             }
         });
 
-        poga9.setBackground(new java.awt.Color(153, 153, 0));
-        poga9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga9.setForeground(new java.awt.Color(255, 255, 255));
+        poga9.setBackground(new java.awt.Color(216, 216, 216));
+        poga9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga9.setForeground(new java.awt.Color(102, 102, 0));
         poga9.setText("9");
-        poga9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga9ActionPerformed(evt);
             }
         });
 
-        poga7.setBackground(new java.awt.Color(153, 153, 0));
-        poga7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga7.setForeground(new java.awt.Color(255, 255, 255));
+        poga7.setBackground(new java.awt.Color(216, 216, 216));
+        poga7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga7.setForeground(new java.awt.Color(102, 102, 0));
         poga7.setText("7");
-        poga7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga7ActionPerformed(evt);
             }
         });
 
-        poga8.setBackground(new java.awt.Color(153, 153, 0));
-        poga8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga8.setForeground(new java.awt.Color(255, 255, 255));
+        poga8.setBackground(new java.awt.Color(216, 216, 216));
+        poga8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga8.setForeground(new java.awt.Color(102, 102, 0));
         poga8.setText("8");
-        poga8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga8ActionPerformed(evt);
@@ -155,72 +155,72 @@ public class Kalkulators extends javax.swing.JPanel {
         });
 
         calc.setBackground(new java.awt.Color(255, 255, 153));
-        calc.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        calc.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         calc.setForeground(new java.awt.Color(102, 102, 0));
         calc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        calc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 0), 2, true));
+        calc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.gray));
         calc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        poga10.setBackground(new java.awt.Color(153, 153, 0));
-        poga10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        poga10.setForeground(new java.awt.Color(255, 255, 255));
+        poga10.setBackground(new java.awt.Color(216, 216, 216));
+        poga10.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        poga10.setForeground(new java.awt.Color(102, 102, 0));
         poga10.setText("0");
-        poga10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        poga10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         poga10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 poga10ActionPerformed(evt);
             }
         });
 
-        plus.setBackground(new java.awt.Color(153, 153, 0));
+        plus.setBackground(new java.awt.Color(191, 191, 191));
         plus.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        plus.setForeground(new java.awt.Color(204, 204, 0));
+        plus.setForeground(new java.awt.Color(102, 102, 0));
         plus.setText("+");
-        plus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        plus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         plus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 plusActionPerformed(evt);
             }
         });
 
-        minus.setBackground(new java.awt.Color(153, 153, 0));
+        minus.setBackground(new java.awt.Color(191, 191, 191));
         minus.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        minus.setForeground(new java.awt.Color(204, 204, 0));
+        minus.setForeground(new java.awt.Color(102, 102, 0));
         minus.setText("-");
-        minus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        minus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         minus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 minusActionPerformed(evt);
             }
         });
 
-        result.setBackground(new java.awt.Color(153, 153, 0));
+        result.setBackground(new java.awt.Color(191, 191, 191));
         result.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        result.setForeground(new java.awt.Color(204, 204, 0));
+        result.setForeground(new java.awt.Color(102, 102, 0));
         result.setText("=");
-        result.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        result.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         result.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resultActionPerformed(evt);
             }
         });
 
-        multi.setBackground(new java.awt.Color(153, 153, 0));
+        multi.setBackground(new java.awt.Color(191, 191, 191));
         multi.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        multi.setForeground(new java.awt.Color(204, 204, 0));
+        multi.setForeground(new java.awt.Color(102, 102, 0));
         multi.setText("*");
-        multi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        multi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         multi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 multiActionPerformed(evt);
             }
         });
 
-        div.setBackground(new java.awt.Color(153, 153, 0));
+        div.setBackground(new java.awt.Color(191, 191, 191));
         div.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        div.setForeground(new java.awt.Color(204, 204, 0));
+        div.setForeground(new java.awt.Color(102, 102, 0));
         div.setText("/");
-        div.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        div.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         div.setMargin(new java.awt.Insets(2, 14, 14, 14));
         div.setPreferredSize(new java.awt.Dimension(50, 50));
         div.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -234,33 +234,33 @@ public class Kalkulators extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(102, 102, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        clear.setBackground(new java.awt.Color(153, 153, 0));
+        clear.setBackground(new java.awt.Color(191, 191, 191));
         clear.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        clear.setForeground(new java.awt.Color(204, 204, 0));
+        clear.setForeground(new java.awt.Color(102, 102, 0));
         clear.setText("C");
-        clear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        clear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearActionPerformed(evt);
             }
         });
 
-        xdelete.setBackground(new java.awt.Color(153, 153, 0));
+        xdelete.setBackground(new java.awt.Color(191, 191, 191));
         xdelete.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        xdelete.setForeground(new java.awt.Color(204, 204, 0));
+        xdelete.setForeground(new java.awt.Color(102, 102, 0));
         xdelete.setText("X");
-        xdelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        xdelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, null, java.awt.Color.gray));
         xdelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xdeleteActionPerformed(evt);
             }
         });
 
-        dot.setBackground(new java.awt.Color(153, 153, 0));
-        dot.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        dot.setForeground(new java.awt.Color(255, 255, 255));
+        dot.setBackground(new java.awt.Color(216, 216, 216));
+        dot.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        dot.setForeground(new java.awt.Color(102, 102, 0));
         dot.setText(".");
-        dot.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        dot.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.gray, null));
         dot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dotActionPerformed(evt);
@@ -272,32 +272,31 @@ public class Kalkulators extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(poga1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(poga1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(poga2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(poga2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(poga3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(calc, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(poga9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(poga10, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dot, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(calc, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(multi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,37 +311,14 @@ public class Kalkulators extends javax.swing.JPanel {
                             .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(minus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(result, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(calc, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(poga1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(poga4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(poga7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(poga9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(poga10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dot, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(86, 86, 86)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(xdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -355,8 +331,33 @@ public class Kalkulators extends javax.swing.JPanel {
                             .addComponent(div, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(multi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(calc, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(poga1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(poga4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(poga7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(poga9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(poga10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dot, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -438,10 +439,6 @@ public class Kalkulators extends javax.swing.JPanel {
             calc.setText(String.valueOf(result));
         }
 
-        if (finalRes) {
-            calc.setText("");
-        }
-
         finalRes = true;
     }//GEN-LAST:event_resultActionPerformed
 
@@ -473,7 +470,7 @@ public class Kalkulators extends javax.swing.JPanel {
         if (calc.getText().equals("") || finalRes || actionChosen) {
             setElementText("0.");
         } else if (calc.getText().contains(".")) {
-            setElementText("");
+            //setElementText("");
         } else {
             setElementText(".");
         }
