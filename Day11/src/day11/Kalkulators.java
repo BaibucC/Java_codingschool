@@ -437,12 +437,12 @@ public class Kalkulators extends javax.swing.JPanel {
                     break;
             }
             calc.setText(String.valueOf(result));
+            finalRes = true;
         }
-
-        finalRes = true;
     }//GEN-LAST:event_resultActionPerformed
 
     private void multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiActionPerformed
+        actionChosen = false;
         num1 = calc.getText();
         action = "multi";
         actionChosen = true;
