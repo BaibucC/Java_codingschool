@@ -43,7 +43,63 @@ public class ListExample {
 //        }
 
 //        SarakstaUzdevums();
-        Dzesana();
+//        Dzesana();
+        AddDelete();
+    }
+
+    public static void AddDelete() {
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        int number = 0;
+        while (true) {
+            System.out.println("Vai vēlaties skaitli pievienot (+), dzēst (-) vai iziet (n)?");
+            String action = sc.next();
+            
+            if (!action.equals("n") && !action.equals("+") && !action.equals("-") ) {
+                System.out.println("Nepareiza izvēle!");
+            }
+            
+            if (action.equals("n")) {
+                System.out.println("Ejam ārā!");
+                break;
+            } 
+            
+            if (action.equals("+")) {
+                try {
+                    System.out.println("\nIevadiet skaitli: ");
+                    number = sc.nextInt();
+                    list.add(number);
+                } catch (Exception ex) {
+                    System.out.println("Nepareiza ievade");
+                }
+            }
+            
+            if (action.equals("-")) {
+                if (list.isEmpty()) {
+                    System.out.println("Saraksts ir tukšs!");
+                } else {
+                    System.out.println("\nKuru elementu vēlaties dzēst?");
+                    try {
+                        number = sc.nextInt();
+                        list.remove(number);
+                    } catch (Exception ex) {
+                        System.out.println("Nepareiza ievade");
+                    }
+                    if (list.isEmpty()) {
+                    System.out.println("Saraksts ir tukšs!");
+                }
+                }
+            }
+
+            
+            System.out.println("");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(i + ".skaitlis ir: " + list.get(i));
+            }
+            System.out.println("Viss saraksts: " + list + "\n");
+
+        }
+
     }
 
     public static void SarakstaUzdevums() {
@@ -57,7 +113,7 @@ public class ListExample {
         ArrayList<Integer> list = new ArrayList<>();
         while (true) {
             Scanner sc = new Scanner(System.in);
-
+            System.out.println("Kuru elementu vēlaties dzēst?");
             try {
                 System.out.println("Ievadiet skaitļus: ");
                 int number = sc.nextInt();
@@ -70,7 +126,7 @@ public class ListExample {
             }
             System.out.println(list);
             System.out.println("Turpināt? Y/N");
-            if (sc.next() == "N") {
+            if (sc.next().equals("N")) {
                 break;
             }
 
@@ -101,7 +157,7 @@ public class ListExample {
                 try {
                     number = sc.nextInt();
                     list.remove(number);
-                } catch (Exception e) {
+                } catch (Exception ex) {
                     System.out.println("Nepareiza ievade");
                 }
 
@@ -113,4 +169,5 @@ public class ListExample {
             }
         }
     }
+
 }

@@ -108,9 +108,6 @@ public class InputCheck extends javax.swing.JPanel {
     }//GEN-LAST:event_loginActionPerformed
 
     private void bTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTestActionPerformed
-//        int number = Integer.valueOf(test.getText());
-//        result.setText(String.valueOf(number * number));
-
         try {
             int number = Integer.valueOf(test.getText());
             result.setText(String.valueOf(number * number));
