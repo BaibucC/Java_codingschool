@@ -6,7 +6,6 @@
 package desas_gui;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -14,7 +13,6 @@ import java.util.Arrays;
  */
 public class Game extends javax.swing.JPanel {
 
-    ArrayList<String> field;
     boolean Player;
     boolean match;
     String value;
@@ -22,8 +20,6 @@ public class Game extends javax.swing.JPanel {
 
     public Game() {
         initComponents();
-        field = new ArrayList<>();
-        drawField();
         value = "X";
         Player = true;
         match = false;
@@ -33,12 +29,6 @@ public class Game extends javax.swing.JPanel {
 
     }
 
-    private void drawField() {
-        for (int i = 0; i < 9; i++) {
-            field.add(i, "");
-        }
-        //area.setText(Arrays.toString(field.toArray()));
-    }
 
     private void setSymbol() {
         if (!match && turns > 0) {
@@ -254,133 +244,115 @@ public class Game extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b0ActionPerformed
-        setSymbol();
-        if (!match) {
+if (!match && "".equals(b0.getText())) {
+            setSymbol();
             b0.setText(value);
-            field.remove(0);
-            field.add(0, value);
         }
         checkField();
     }//GEN-LAST:event_b0ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b1.getText())) {
+            setSymbol();
             b1.setText(value);
-            field.remove(1);
-            field.add(1, value);
         }
         checkField();
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b2.getText())) {
+            setSymbol();
             b2.setText(value);
-            field.remove(2);
-            field.add(2, value);
         }
         checkField();
     }//GEN-LAST:event_b2ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b3.getText())) {
+            setSymbol();
             b3.setText(value);
-            field.remove(3);
-            field.add(3, value);
         }
         checkField();
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b4.getText())) {
+            setSymbol();
             b4.setText(value);
-            field.remove(4);
-            field.add(4, value);
         }
         checkField();
     }//GEN-LAST:event_b4ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b5.getText())) {
+            setSymbol();
             b5.setText(value);
-            field.remove(5);
-            field.add(5, value);
         }
         checkField();
     }//GEN-LAST:event_b5ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b6.getText())) {
+            setSymbol();
             b6.setText(value);
-            field.remove(6);
-            field.add(6, value);
         }
         checkField();
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b7.getText())) {
+            setSymbol();
             b7.setText(value);
-            field.remove(7);
-            field.add(7, value);
         }
         checkField();
     }//GEN-LAST:event_b7ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        setSymbol();
-        if (!match) {
+        if (!match && "".equals(b8.getText())) {
+            setSymbol();
             b8.setText(value);
-            field.remove(8);
-            field.add(8, value);
         }
         checkField();
     }//GEN-LAST:event_b8ActionPerformed
 
     private void checkField() {
-        if (field.get(0).equals(field.get(1)) && field.get(0).equals(field.get(2))) {
-            if (field.get(0).equals("X") || field.get(0).equals("O")) {
+        if (b0.getText().equals(b1.getText()) && b0.getText().equals(b2.getText())) {
+            if (b0.getText().equals("X") || b0.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(3).equals(field.get(4)) && field.get(3).equals(field.get(5))) {
-            if (field.get(3).equals("X") || field.get(3).equals("O")) {
+        if (b3.getText().equals(b4.getText()) && b3.getText().equals(b5.getText())) {
+            if (b3.getText().equals("X") || b3.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(6).equals(field.get(7)) && field.get(6).equals(field.get(8))) {
-            if (field.get(6).equals("X") || field.get(6).equals("O")) {
+        if (b6.getText().equals(b7.getText()) && b6.getText().equals(b8.getText())) {
+            if (b6.getText().equals("X") || b6.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(0).equals(field.get(3)) && field.get(0).equals(field.get(6))) {
-            if (field.get(0).equals("X") || field.get(0).equals("O")) {
+        if (b0.getText().equals(b3.getText()) && b0.getText().equals(b6.getText())) {
+            if (b0.getText().equals("X") || b0.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(1).equals(field.get(4)) && field.get(1).equals(field.get(7))) {
-            if (field.get(1).equals("X") || field.get(1).equals("O")) {
+        if (b1.getText().equals(b4.getText()) && b1.getText().equals(b7.getText())) {
+            if (b1.getText().equals("X") || b1.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(2).equals(field.get(5)) && field.get(2).equals(field.get(8))) {
-            if (field.get(2).equals("X") || field.get(2).equals("O")) {
+        if (b2.getText().equals(b5.getText()) && b2.getText().equals(b8.getText())) {
+            if (b2.getText().equals("X") || b2.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(0).equals(field.get(4)) && field.get(0).equals(field.get(8))) {
-            if (field.get(0).equals("X") || field.get(0).equals("O")) {
+        if (b0.getText().equals(b4.getText()) && b0.getText().equals(b8.getText())) {
+            if (b0.getText().equals("X") || b0.getText().equals("O")) {
                 match = true;
             }
         }
-        if (field.get(2).equals(field.get(4)) && field.get(2).equals(field.get(6))) {
-            if (field.get(2).equals("X") || field.get(2).equals("O")) {
+        if (b2.getText().equals(b4.getText()) && b2.getText().equals(b6.getText())) {
+            if (b2.getText().equals("X") || b2.getText().equals("O")) {
                 match = true;
             }
         }
