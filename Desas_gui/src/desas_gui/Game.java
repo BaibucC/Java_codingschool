@@ -26,9 +26,7 @@ public class Game extends javax.swing.JPanel {
         infoPlayer.setText("Player:  " + value);
         infoTurns.setText("Turns left: " + 9);
         turns = 9;
-
     }
-
 
     private void setSymbol() {
         if (!match && turns > 0) {
@@ -244,7 +242,7 @@ public class Game extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b0ActionPerformed
-if (!match && "".equals(b0.getText())) {
+        if (!match && "".equals(b0.getText())) {
             setSymbol();
             b0.setText(value);
         }
