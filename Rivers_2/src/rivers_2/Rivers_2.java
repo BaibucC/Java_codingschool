@@ -25,7 +25,7 @@ public class Rivers_2 {
         List<Long> list1 = new ArrayList<>();
 //        list1.add(r1);
         //l1.add(0, 1);  // adds 1 at 0 index 
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < list1.size(); i++) {
             numbers = (String.valueOf(r1));
             result = Long.valueOf(String.valueOf(numbers.charAt(0)));
             for (int j = 1; j < numbers.length(); j++) {
@@ -39,7 +39,7 @@ public class Rivers_2 {
 
         List<Long> list2 = new ArrayList<>();
         list2.add(r2);
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < list2.size(); i++) {
             numbers = (String.valueOf(r2));
             result = Long.valueOf(String.valueOf(numbers.charAt(0)));
             for (int j = 1; j < numbers.length(); j++) {
