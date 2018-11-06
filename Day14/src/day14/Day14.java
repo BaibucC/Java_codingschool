@@ -38,23 +38,32 @@ public class Day14 {
                 break;
             }
             list.add(name);
-            System.out.println(list); 
+            System.out.println(list);
         }
-        System.out.println("Kādu vārdu vēlaties meklēt?");
-        String search = sc.next();
-        boolean match;
-        match = false;
 
-        for (String result : list) {
-            if (search.equals(result)) {
-                System.out.println("Vārds, kas sakrīt: " + list.indexOf(search) + ".elements: " + result);
-                match = true;
+        if (list.isEmpty()) {
+            System.out.println("Saraksts ir tukšs");
+        } else {
+            System.out.println("Kādu vārdu vēlaties meklēt?");
+            String search = sc.next();
+            boolean match = false;
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).equals(search)) {
+                    System.out.println("Vārds, kas sakrīt: " + (i + 1) + ".elements: " + search);
+                    match = true;
+                }
             }
-        }
-        if (!match) {
-            System.out.println("Vārds netika atrasts!");
-        }
+            if (!match) {
+                System.out.println("Vārds netika atrasts!");
+            }
+//        for (String result : list) {
+//            if (search.equals(result)) {
+//                System.out.println("Vārds, kas sakrīt: " + list.indexOf(search) + ".elements: " + result);
+//                match = true;
+//            }
+//        }
 
+        }
     }
 
     public static void videjais() {
