@@ -30,14 +30,15 @@ public class Day14 {
         ArrayList<String> list = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         String name = "";
-        while (!name.equals("n")) {
+        while (true) {
             System.out.println("Ievadiet vārdu vai beigt saraksta veidošanu (n)");
             name = sc.next();
-            list.add(name);
-            System.out.println(list);
             if (name.equals("n")) {
                 System.out.println("Saraksta veidošana beigusies!");
+                break;
             }
+            list.add(name);
+            System.out.println(list); 
         }
         System.out.println("Kādu vārdu vēlaties meklēt?");
         String search = sc.next();
@@ -46,7 +47,7 @@ public class Day14 {
 
         for (String result : list) {
             if (search.equals(result)) {
-                System.out.println("Vārds, kas sakrīt: " + result + result.indexOf(search));
+                System.out.println("Vārds, kas sakrīt: " + list.indexOf(search) + ".elements: " + result);
                 match = true;
             }
         }
