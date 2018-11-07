@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package desas_gui;
+package finalworktry;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -12,13 +12,13 @@ import javax.swing.SwingUtilities;
  *
  * @author Baiba
  */
-public class Desas_gui {
+public class FinalWorkTry {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
+                SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 JFrame frame = new JFrame();
@@ -26,6 +26,7 @@ public class Desas_gui {
                 frame.getContentPane().add(new Game());
                 frame.pack();
                 frame.setVisible(true);
+                //sataisīt poas 0-9, jāpaādās ciparam, kas nospiests
             }
         });
     }
