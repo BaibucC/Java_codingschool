@@ -5,8 +5,11 @@
  */
 package finalworktry;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -15,25 +18,31 @@ import javax.swing.JButton;
  * @author Baiba
  */
 public class Game extends javax.swing.JPanel {
-    public Game() {
-        initComponents();
-        drawField();
-        b2.setIcon(defIcon);
-        b3.setIcon(defIcon);
-        b6.setIcon(defIcon);
-        b9.setIcon(defIcon);
-        label.setText(String.valueOf(moves));
-        label2.setText("Pirmais logs");
-    }
-    
-    boolean visible = true;
-    boolean nextMove = true;
+
+    ArrayList<JButton> buttons = new ArrayList<>();
+    ArrayList<ImageIcon> iconList = new ArrayList<>();
+    boolean isMatch = false;
+    boolean oneSelected = false;
+    boolean twoSelected = false;
     int moves = 2;
     JButton selected1 = null;
     JButton selected2 = null;
-    ImageIcon icon = new ImageIcon("src\\images\\icon.jpg");
-    ImageIcon defIcon = new ImageIcon("src\\images\\icon2.jpg");
 
+    public Game() {
+        initComponents();
+        label2.setText("Moves: " + String.valueOf(moves));
+        label3.setText("matchIcons " + String.valueOf(isMatch));
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+        Collections.addAll(buttons, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10);
+
+        ImageIcon icon2 = new ImageIcon("src\\images\\icon2.jpg");
+        ImageIcon icon3 = new ImageIcon("src\\images\\icon3.jpg");
+        ImageIcon icon4 = new ImageIcon("src\\images\\icon4.jpg");
+        Collections.addAll(iconList, icon2, icon2, icon3, icon3, icon3, icon3, icon4, icon4, icon4, icon4);
+        Collections.shuffle(iconList);
+    }
+
+    //ImageIcon defIcon = new ImageIcon("src\\images\\icon.jpg");
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,63 +63,135 @@ public class Game extends javax.swing.JPanel {
         b9 = new javax.swing.JButton();
         label = new javax.swing.JLabel();
         label2 = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
+        label4 = new javax.swing.JLabel();
+        b10 = new javax.swing.JButton();
 
+        b1.setBackground(new java.awt.Color(204, 204, 204));
+        b1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        b2.setBackground(new java.awt.Color(204, 204, 204));
+        b2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
             }
         });
 
+        b3.setBackground(new java.awt.Color(204, 204, 204));
+        b3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
             }
         });
 
+        b4.setBackground(new java.awt.Color(204, 204, 204));
+        b4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
+
+        b5.setBackground(new java.awt.Color(204, 204, 204));
+        b5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+
+        b6.setBackground(new java.awt.Color(204, 204, 204));
+        b6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
             }
         });
 
+        b7.setBackground(new java.awt.Color(204, 204, 204));
+        b7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b7ActionPerformed(evt);
+            }
+        });
+
+        b8.setBackground(new java.awt.Color(204, 204, 204));
+        b8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b8ActionPerformed(evt);
+            }
+        });
+
+        b9.setBackground(new java.awt.Color(204, 204, 204));
+        b9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
         b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b9ActionPerformed(evt);
             }
         });
 
-        label.setText("jLabel1");
+        label.setText("selected");
 
-        label2.setText("jLabel1");
+        label2.setText("matchIcons");
+
+        label3.setText("matchIcons value");
+
+        label4.setText("jLabel1");
+
+        b10.setBackground(new java.awt.Color(204, 204, 204));
+        b10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.darkGray, null));
+        b10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addComponent(label)
+                        .addGap(29, 29, 29)
+                        .addComponent(label2)
+                        .addGap(66, 66, 66)
+                        .addComponent(label3)
+                        .addGap(67, 67, 67)
+                        .addComponent(label4))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                            .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(b10, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(label)
-                        .addGap(69, 69, 69)
-                        .addComponent(label2)))
-                .addContainerGap(272, Short.MAX_VALUE))
+                        .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,110 +203,246 @@ public class Game extends javax.swing.JPanel {
                         .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(b7, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(b9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label)
-                    .addComponent(label2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label2)
+                    .addComponent(label3)
+                    .addComponent(label4))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void drawField() {
-        JButton[] buttons = new JButton[4];
-        buttons[0] = b3; //btn1
-        buttons[1] = b6; //btn2
-        buttons[2] = b9; //btn3
-        buttons[3] = b2; //btn4
-    }
-    
-    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
-        if (nextMove) {
-            if (selected1 == null) {
-                selected1 = b9;
-            } else {
-                selected2 = b9;
+
+    private void clearIcons() {
+        if (twoSelected) {//nesakrīt
+            if (!isMatch) {//sakrīt
+                selected1.setIcon(null);
+                selected2.setIcon(null);
             }
-            b9.setIcon(icon);
-            moves--;
-            countMoves();
-            matchIcons();
+            selected1 = null;
+            selected2 = null;
+            oneSelected = false;
+            twoSelected = false;
+            isMatch = false;
+            moves = 2;
         }
+    }
+
+    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b9;
+            label.setText("selected2");
+            b9.setIcon(iconList.get(8));
+            twoSelected = true;
+        } else {
+            selected1 = b9;
+            label.setText("selected1");
+            b9.setIcon(iconList.get(8));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
     }//GEN-LAST:event_b9ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        if (nextMove) {
-            if (selected1 == null) {
-                selected1 = b6;
-            } else {
-                selected2 = b6;
-            }
-            b6.setIcon(icon);
-            moves--;
-            countMoves();
-            matchIcons();
+
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b6;
+            label.setText("selected2");
+            twoSelected = true;
+            b6.setIcon(iconList.get(5));
+        } else {
+            selected1 = b6;
+            label.setText("selected1");
+            oneSelected = true;
+            b6.setIcon(iconList.get(5));
         }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        if (nextMove) {
-            if (selected1 == null) {
-                selected1 = b3;
-            } else {
-                selected2 = b3;
-            }
-            b3.setIcon(icon);
-            moves--;
-            countMoves();
-            matchIcons();
+
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b3;
+            label.setText("selected2");
+            twoSelected = true;
+            b3.setIcon(iconList.get(2));
+        } else {
+            selected1 = b3;
+            label.setText("selected1");
+            oneSelected = true;
+            b3.setIcon(iconList.get(2));
         }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        if (nextMove) {
-            if (selected1 == null) {
-                selected1 = b2;
-            } else {
-                selected2 = b2;
-            }
-            b2.setIcon(icon);
-            moves--;
-            countMoves();
-            matchIcons();
-        }
-    }//GEN-LAST:event_b2ActionPerformed
-    private void matchIcons() {
-        if (selected2 != null && selected1 != null) {
-            if (selected1.getIcon() == selected2.getIcon()) {
-                label2.setText("sakrīt!");
-            }
-        } else {
-            label2.setText("otrais logs");
-        }
-    }
 
-    private void countMoves() {
-        label.setText(String.valueOf(moves));
-        if (moves == 0) {
-            nextMove = false;
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b2;
+            label.setText("selected2");
+            twoSelected = true;
+            b2.setIcon(iconList.get(1));
+        } else {
+            selected1 = b2;
+            label.setText("selected1");
+            oneSelected = true;
+            b2.setIcon(iconList.get(1));
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b2ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b5;
+            label.setText("selected2");
+            b5.setIcon(iconList.get(4));
+            twoSelected = true;
+        } else {
+            selected1 = b5;
+            label.setText("selected1");
+            b5.setIcon(iconList.get(4));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b8;
+            label.setText("selected2");
+            b8.setIcon(iconList.get(7));
+            twoSelected = true;
+        } else {
+            selected1 = b8;
+            label.setText("selected1");
+            b8.setIcon(iconList.get(7));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b8ActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b1;
+            label.setText("selected2");
+            b1.setIcon(iconList.get(0));
+            twoSelected = true;
+        } else {
+            selected1 = b1;
+            label.setText("selected1");
+            b1.setIcon(iconList.get(0));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b1ActionPerformed
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b4;
+            label.setText("selected2");
+            b4.setIcon(iconList.get(3));
+            twoSelected = true;
+        } else {
+            selected1 = b4;
+            label.setText("selected1");
+            b4.setIcon(iconList.get(3));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b7;
+            label.setText("selected2");
+            b7.setIcon(iconList.get(6));
+            twoSelected = true;
+        } else {
+            selected1 = b7;
+            label.setText("selected1");
+            b7.setIcon(iconList.get(6));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b7ActionPerformed
+
+    private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
+        clearIcons();
+        if (oneSelected) {
+            selected2 = b10;
+            label.setText("selected2");
+            b10.setIcon(iconList.get(9));
+            twoSelected = true;
+        } else {
+            selected1 = b10;
+            label.setText("selected1");
+            b10.setIcon(iconList.get(9));
+            oneSelected = true;
+        }
+        matchIcons();
+        label4.setText("One selected: " + oneSelected + "   twoSelected: " + twoSelected);
+    }//GEN-LAST:event_b10ActionPerformed
+
+    private void matchIcons() {
+        if (oneSelected && twoSelected) {
+            if (selected1.getIcon() == selected2.getIcon()) {
+                isMatch = true;
+                selected1.setEnabled(false);
+                selected2.setEnabled(false);
+                label3.setText("matchIcons " + String.valueOf(isMatch));
+            }
+            if (selected1.getIcon() != selected2.getIcon()) {
+                isMatch = false;
+                label3.setText("matchIcons " + String.valueOf(isMatch));
+            }
+
+        }
+        moves--;
+        label2.setText("Moves: " + String.valueOf(moves));
+        //vajag pārbaudīt, vai visi lauki ir aizpildīti
+        for (int i = 0; i < buttons.size(); i++) {
+            if (buttons.get(i).getIcon() == null){
+                label.setText("vēl");
+                break;
+            }
+            if (buttons.get(i).getIcon() != null && i == buttons.size() - 1) {
+                label.setText("pilns!");
+            } 
         }
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b1;
+    private javax.swing.JButton b10;
     private javax.swing.JButton b2;
     private javax.swing.JButton b3;
     private javax.swing.JButton b4;
@@ -236,5 +453,7 @@ public class Game extends javax.swing.JPanel {
     private javax.swing.JButton b9;
     private javax.swing.JLabel label;
     private javax.swing.JLabel label2;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel label4;
     // End of variables declaration//GEN-END:variables
 }

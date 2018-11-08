@@ -16,36 +16,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="label" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="label3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Component id="label4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="b1" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="b2" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="b3" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="b5" min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="b4" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="b6" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="b7" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="b8" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="b9" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="b8" min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="b10" min="-2" pref="74" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="label" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                      <Component id="b3" min="-2" pref="74" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="b6" min="-2" pref="74" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="b9" min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="272" max="32767" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,73 +72,230 @@
                   <Component id="b7" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="b8" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="b9" min="-2" pref="73" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="b5" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="b6" min="-2" pref="73" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="b2" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="b3" min="-2" pref="73" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="b2" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="b8" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="b10" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="b5" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="b9" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="b6" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="b3" min="-2" pref="73" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="label" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="label2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="b1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b4">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b5">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b6">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b6ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b7">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b7ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b8">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b9">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b9ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="label">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="selected"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="label2">
       <Properties>
+        <Property name="text" type="java.lang.String" value="matchIcons"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="matchIcons value"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label4">
+      <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="b10">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+              <Color PropertyName="shadowOuter" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b10ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
