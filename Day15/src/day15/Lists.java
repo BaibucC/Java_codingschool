@@ -5,6 +5,9 @@
  */
 package day15;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author user
@@ -16,7 +19,12 @@ public class Lists extends javax.swing.JPanel {
      */
     public Lists() {
         initComponents();
+        
     }
+    ArrayList<Integer> numbers = new ArrayList<>();
+    int[] array;
+    int number;
+    String text;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,6 +42,8 @@ public class Lists extends javax.swing.JPanel {
         textField = new javax.swing.JTextField();
         label = new javax.swing.JLabel();
         average = new javax.swing.JButton();
+        bubbleSort = new javax.swing.JButton();
+        label2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -61,12 +71,23 @@ public class Lists extends javax.swing.JPanel {
             }
         });
 
+        label.setText("Ievadiet skaitli!");
+
         average.setText("Aprēķināt vidējo");
         average.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 averageActionPerformed(evt);
             }
         });
+
+        bubbleSort.setText("Sakārtot augoši");
+        bubbleSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bubbleSortActionPerformed(evt);
+            }
+        });
+
+        label2.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,6 +96,7 @@ public class Lists extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bubbleSort)
                     .addComponent(average)
                     .addComponent(delete)
                     .addComponent(btn)
@@ -83,8 +105,10 @@ public class Lists extends javax.swing.JPanel {
                             .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                             .addComponent(textField))
                         .addGap(21, 21, 21)
-                        .addComponent(label)))
-                .addContainerGap(185, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label)
+                            .addComponent(label2))))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +116,10 @@ public class Lists extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(label2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -101,22 +128,35 @@ public class Lists extends javax.swing.JPanel {
                 .addComponent(delete)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(average)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bubbleSort)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-        String text = textField.getText();
-//        if (!text.isEmpty()){
-//            list1.add(text);
-//            textField.setText("");
-//        }     
+        text = textField.getText();
+        number = Integer.valueOf(text);
         try {
-            int number = Integer.valueOf(text);
+            
             if (!text.isEmpty()) {
                 list1.add(text);
+                numbers.add(number);
+                array = new int[numbers.size()];
+//                for (int i = 0; i < list1.getItemCount(); i++) {
+//                    array[i] = number;
+//                    label2.setText(i + " : " + String.valueOf(array[i]));
+//                    System.out.println(i + "  list1:" + list1.getItem(i) + "  numbers:" + numbers.get(i) + "  array:" + array[i]);
+//                }
+
+                for (int item : numbers) {
+                    array[numbers.indexOf(item)] = item;
+                }
+                
+                System.out.println(Arrays.toString(array));
                 textField.setText("");
-                label.setText("Ievade ok");
+
+//                label.setText("Ievade ok");
             }
         } catch (Exception ex) {
             label.setText("Jāievada skaitlis!");
@@ -130,31 +170,89 @@ public class Lists extends javax.swing.JPanel {
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         try {
             list1.remove(list1.getItemCount() - 1);
+            numbers.remove(numbers.size() - 1);
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void averageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_averageActionPerformed
-        double sum = 0;        
-        for (int i = 0; i < list1.getItemCount(); i++) {
-            int num = Integer.valueOf(list1.getItem(i));
-            sum = sum + num;
+        double sum = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            sum = sum + numbers.get(i); //sum += numbers.get(i);
+            //numbers.set(i, numbers.get(i)+5); //pievieno 5 klāt visiem skaitļiem
         }
-        double average = sum / list1.getItemCount();
+        double average = sum / numbers.size();
         label.setText(String.valueOf(average));
         
-        if (list1.getItemCount() == 0) {
+        if (numbers.isEmpty()) {
             label.setText("Saraksts ir tukšs!");
         }
+        //uzd = paņem sarakstu, uztaisa jaunu pogu, kad saraksts ir gatavs, sakārto augošā secībā no mazākā uz lielāko
+
+//        for (int i = 0; i < list1.getItemCount(); i++) {
+//            int num = Integer.valueOf(list1.getItem(i));
+//            sum = sum + num;
+//        }
+//        double average = sum / list1.getItemCount();
+//        label.setText(String.valueOf(average));
+//
+//        if (list1.getItemCount() == 0) {
+//            label.setText("Saraksts ir tukšs!");
+//        }
     }//GEN-LAST:event_averageActionPerformed
+    
+    void bubbleSort(int arr[]) {
+//        int n = arr.length;
+//        for (int i = 0; i < n - 1; i++) {
+//            for (int j = 0; j < n - i - 1; j++) {
+//                if (arr[j] > arr[j + 1]) {
+//                    // swap temp and arr[i] 
+//                    int temp = arr[j];
+//                    arr[j] = arr[j + 1];
+//                    arr[j + 1] = temp;
+//                }
+//            }
+//        }
+        int n = arr.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (arr[j - 1] > arr[j]) {
+                    //swap elements  
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+                
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private void bubbleSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bubbleSortActionPerformed
+        System.out.println(Arrays.toString(array));
+        bubbleSort(array);
+        
+        System.out.println("");
+        for (int i = 0; i < array.length; i++) {
+            list1.replaceItem(String.valueOf(array[i]), i);
+            numbers.set(i, array[i]);
+            System.out.println(i + "  list1:" + list1.getItem(i) + "  numbers:" + numbers.get(i));
+            
+        }
+        
+
+    }//GEN-LAST:event_bubbleSortActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton average;
     private javax.swing.JButton btn;
+    private javax.swing.JButton bubbleSort;
     private javax.swing.JButton delete;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel label;
+    private javax.swing.JLabel label2;
     private java.awt.List list1;
     private javax.swing.JTextField textField;
     // End of variables declaration//GEN-END:variables
