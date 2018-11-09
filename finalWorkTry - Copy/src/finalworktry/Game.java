@@ -24,45 +24,20 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     public Game() {
         initComponents();
+
         label.setText(String.valueOf(moves));
         label2.setText("Pirmais logs");
 
-        buttons.add(b1);
-        buttons.add(b2);
-        buttons.add(b3);
-        buttons.add(b4);
-        buttons.add(b5);
-        buttons.add(b6);
-        buttons.add(b7);
-        buttons.add(b8);
-        buttons.add(b9);
+        
+        Collections.addAll(buttons, b1, b2, b3, b4, b5, b6, b7, b8, b9);
 
-//        buttons.get(0).setIcon(defIcon);
-//        buttons.get(1).setIcon(defIcon);
-//        buttons.get(2).setIcon(defIcon);
-//        buttons.get(3).setIcon(defIcon);
-//        buttons.get(4).setIcon(defIcon);
-//        buttons.get(5).setIcon(defIcon);
-//        buttons.get(6).setIcon(defIcon);
-//        buttons.get(7).setIcon(defIcon);
-//        buttons.get(8).setIcon(defIcon);
         ImageIcon icon2 = new ImageIcon("src\\images\\icon2.jpg");
         ImageIcon icon3 = new ImageIcon("src\\images\\icon3.jpg");
         ImageIcon icon4 = new ImageIcon("src\\images\\icon4.jpg");
-        iconList.add(icon2);
-        iconList.add(icon2);
-        iconList.add(icon2);
-        iconList.add(icon3);
-        iconList.add(icon3);
-        iconList.add(icon3);
-        iconList.add(icon4);
-        iconList.add(icon4);
-        iconList.add(icon4);
+        Collections.addAll(iconList, icon2, icon3, icon3, icon4, icon4);
+        Collections.addAll(iconList, icon2, icon3, icon3, icon4, icon4);
         Collections.shuffle(iconList);
-
-//        for (int i = 0; i < buttons.size(); i++) {
-//            buttons.get(i).setIcon(iconList.get(i));
-//        }
+        drawField();
     }
 
     boolean visible = true;
@@ -71,7 +46,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     int moves = 2;
     JButton selected1 = null;
     JButton selected2 = null;
-
+    int index;
     ImageIcon defIcon = new ImageIcon("src\\images\\icon.jpg");
 
     /**
@@ -96,24 +71,48 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         label2 = new javax.swing.JLabel();
         label3 = new javax.swing.JLabel();
 
+        b1.setName("b1"); // NOI18N
+
+        b2.setName("b2"); // NOI18N
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
             }
         });
 
+        b3.setName("b3"); // NOI18N
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
             }
         });
 
+        b4.setName("b4"); // NOI18N
+
+        b5.setName("b5"); // NOI18N
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+
+        b6.setName("b6"); // NOI18N
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
             }
         });
 
+        b7.setEnabled(false);
+
+        b8.setName("b8"); // NOI18N
+        b8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b8ActionPerformed(evt);
+            }
+        });
+
+        b9.setName("b9"); // NOI18N
         b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b9ActionPerformed(evt);
@@ -190,17 +189,30 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void actionPerf(ActionEvent evt) {
-        JButton button = (JButton) evt.getSource();
-        for (int i = buttons.size(); i < buttons.size(); i++) {
-            if (button != buttons.get(i)) {
-                button.setIcon(iconList.get(i));
-                break;
-
-            }
-
+    public void drawField() {
+        for (int i = 1; i < 10; i++) {
+            buttons.add(new JButton("b" + i));
         }
-        label3.setText("oooooo");
+        //sets names for all buttons and adds actionListeners
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).setName("b" + i);
+            buttons.get(i).addActionListener(this);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        JButton button = (JButton) evt.getSource();
+        System.out.println(button.getName()); // check
+        for (int i = 0; i < buttons.size(); i++) {
+            if (button == buttons.get(i)) {
+                index = i;
+                System.out.println("image index: " + i);
+                button.setIcon(iconList.get(i));
+            }
+        }
+
+        System.out.println("icon name:  " + button.getIcon()); //check
     }
 
     private void clearIcons() {
@@ -220,22 +232,23 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
 //        b9.addActionListener(this);
-        if (noMatch) {
-            clearIcons();
-        }
-        if (b9 != selected1 || b9 != selected2) {
-            if (selected1 == null) {
-                selected1 = b9;
-            }
-            if (selected1 != null) {
-                selected2 = b9;
-            }
-            b9.setIcon(iconList.get(8));
-            moves--;
-            countMoves();
-            matchIcons();
-
-        }
+//        index = 8;
+//        if (noMatch) {
+//            clearIcons();
+//        }
+//        if (b9 != selected1 || b9 != selected2) {
+//            if (selected1 == null) {
+//                selected1 = b9;
+//            }
+//            if (selected1 != null) {
+//                selected2 = b9;
+//            }
+//            b9.setIcon(iconList.get(8));
+//            moves--;
+//            countMoves();
+//            matchIcons();
+//
+//        }
 //        for (int i = buttons.size(); i < buttons.size(); i++) {
 //            if (b9 == buttons.get(i))
 //            {
@@ -248,62 +261,78 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        if (noMatch) {
-            clearIcons();
-        }
-        if (b6 != selected1 || b6 != selected2) {
-            if (selected1 == null) {
-                selected1 = b6;
-            }
-            if (selected1 != null) {
-                selected2 = b6;
-            }
-            b6.setIcon(iconList.get(5));
-            moves--;
-            countMoves();
-            matchIcons();
-        }
+//        b6.addActionListener(this);
+//        index = 5;
+//        if (noMatch) {
+//            clearIcons();
+//        }
+//        if (b6 != selected1 || b6 != selected2) {
+//            if (selected1 == null) {
+//                selected1 = b6;
+//            }
+//            if (selected1 != null) {
+//                selected2 = b6;
+//            }
+//            b6.setIcon(iconList.get(5));
+//            moves--;
+//            countMoves();
+//            matchIcons();
+//        }
 
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        if (noMatch) {
-            clearIcons();
-        }
-        if (b3 != selected1 || b3 != selected2) {
-            if (selected1 == null) {
-                selected1 = b3;
-            }
-            if (selected1 != null) {
-                selected2 = b3;
-            }
-            b3.setIcon(iconList.get(2));
-            moves--;
-            countMoves();
-            matchIcons();
-        }
+//        b3.addActionListener(this);
+//        index = 2;
+//        if (noMatch) {
+//            clearIcons();
+//        }
+//        if (b3 != selected1 || b3 != selected2) {
+//            if (selected1 == null) {
+//                selected1 = b3;
+//            }
+//            if (selected1 != null) {
+//                selected2 = b3;
+//            }
+//            b3.setIcon(iconList.get(2));
+//            moves--;
+//            countMoves();
+//            matchIcons();
+//        }
 
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        if (noMatch) {
-            clearIcons();
-        }
-        if (b2 != selected1 || b2 != selected2) {
-            if (selected1 == null) {
-                selected1 = b2;
-            }
-            if (selected1 != null) {
-                selected2 = b2;
-            }
-            b2.setIcon(iconList.get(1));
-            moves--;
-
-            matchIcons();
-            countMoves();
-
-        }
+//        b2.addActionListener(this);
+//        index = 1;
+//        if (noMatch) {
+//            clearIcons();
+//        }
+//        if (b2 != selected1 || b2 != selected2) {
+//            if (selected1 == null) {
+//                selected1 = b2;
+//            }
+//            if (selected1 != null) {
+//                selected2 = b2;
+//            }
+//            b2.setIcon(iconList.get(1));
+//            moves--;
+//
+//            matchIcons();
+//            countMoves();
+//
+//        }
     }//GEN-LAST:event_b2ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+//        b5.addActionListener(this);
+//        index = 4;
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+//        b8.addActionListener(this);
+//        index = 7;
+    }//GEN-LAST:event_b8ActionPerformed
     private void matchIcons() {
 //        if (selected1 == null || selected2 == null){
 //            nextMove = false;
@@ -332,24 +361,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 //        selected2.setIcon(null);
     }
 
-    private void selectedMatch() {
-
-    }
-
-    private void countMoves() {
-        label.setText(String.valueOf(moves));
-//        if (nextMove) {
-        moves = 2;
-//            selected1 = null;
-//            selected2 = null;
-
-//        }
-//        if (moves == 0) {
-//            nextMove = false;
-//        }
-    }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b1;
     private javax.swing.JButton b2;
@@ -365,13 +376,5 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JLabel label3;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 }

@@ -95,31 +95,64 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="b1">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b1" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="b2">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b2" noResource="true"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b3">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b3" noResource="true"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b4">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b4" noResource="true"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="b5">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b5" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b6">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b6" noResource="true"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b6ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b7">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="b8">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b8" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="b9">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="b9" noResource="true"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b9ActionPerformed"/>
       </Events>
