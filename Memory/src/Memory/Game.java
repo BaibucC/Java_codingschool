@@ -53,17 +53,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         initComponents();
         AddListen();
         Timer timer;
-        newGame.addActionListener(actionListener);
         timerPause.addActionListener(actionListenerT);
         timerPause.setSelected(false);
         labelEnd.setText("Choose your game!");
+        
     }
 
 //!!!!!!!!!!!!!TODO Pārveidot taimera actiolistener
     Timer timer = new Timer(1000, new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            count++;
+        public void actionPerformed(ActionEvent evt) {
             int min = 0;
             //TODO var mēģināt saīsināt
             if (count >= 60) {
@@ -78,7 +77,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             if (count < 3600) {
                 labelTime.setText("Time: " + time);
             } else {
-                ((Timer) (e.getSource())).stop();
+                ((Timer) (evt.getSource())).stop();
             }
         }
     });
@@ -284,7 +283,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         field.removeAll();
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
-
         //creates new field
         count = 0;
         labelEnd.setText("Game on!");
@@ -293,11 +291,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             System.out.println("empty");
             labelEnd.setText("Choose all game options!");
         } else {
-        try {
-            GridLayout();
-        } catch (Exception e) {
-            
-        }
+                GridLayout();
         }
     }//GEN-LAST:event_newGameActionPerformed
 
@@ -312,58 +306,57 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
+        newGame.addActionListener(actionListenerN);
     }
 
     private void GridLayout() {
-         
-            if (diffChosen.equals("hard")) {
-                movesRem.setText("Moves remaining: " + moves);
-            } else {
-                movesRem.setText("Moves remaining: unlimited");
-            }
-            labelTime.setText("Time: " + time);
+        if (diffChosen.equals("hard")) {
+            movesRem.setText("Moves remaining: " + moves);
+        } else {
+            movesRem.setText("Moves remaining: unlimited");
+        }
+        labelTime.setText("Time: " + time);
 
 //creates field and addds buttons from arraylist   
-            field.setLayout(new GridLayout(n, n));
-            for (int i = 0; i < n * n; i++) {
-                buttons.add(new JButton());
-                buttons.get(i).setName("b" + i);
-                //System.out.println("add listener & button " + i);
-                field.add(buttons.get(i));
-                buttons.get(i).addActionListener(actionListener);
-                buttons.get(i).setBackground(Color.WHITE);
-            }
+        field.setLayout(new GridLayout(n, n));
+        for (int i = 0; i < n * n; i++) {
+            buttons.add(new JButton());
+            buttons.get(i).setName("b" + i);
+            field.add(buttons.get(i));
+            buttons.get(i).addActionListener(actionListener);
+            buttons.get(i).setBackground(Color.WHITE);
+        }
 
 //creates & shuffles icons
-            for (int i = 0; i < n * n / 2; i++) {
-                //icon = new ImageIcon();
-                switch (iconsChosen) {
-                    case "photos":
-                        icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
-                        icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
-                        break;
-                    case "clipart":
-                        icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
-                        icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
-                        break;
-                    case "icons":
-                        icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
-                        icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
-                        break;
-                }
-                Image resized = icon.getImage();
-                if (sizeChosen.equals("medium")) {
-                    resized = icon.getImage().getScaledInstance(122, 122, Image.SCALE_SMOOTH);
-                }
-                if (sizeChosen.equals("large")) {
-                    resized = icon.getImage().getScaledInstance(81, 81, Image.SCALE_SMOOTH);
-                }
-                icon = new ImageIcon(resized);
-                iconList.add(icon);
-                iconList.add(icon);
+        for (int i = 0; i < n * n / 2; i++) {
+            //icon = new ImageIcon();
+            switch (iconsChosen) {
+                case "photos":
+                    icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
+                    icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
+                    break;
+                case "clipart":
+                    icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
+                    icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
+                    break;
+                case "icons":
+                    icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
+                    icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
+                    break;
             }
-            Collections.shuffle(iconList);
-        
+            Image resized = icon.getImage();
+            if (sizeChosen.equals("medium")) {
+                resized = icon.getImage().getScaledInstance(122, 122, Image.SCALE_SMOOTH);
+            }
+            if (sizeChosen.equals("large")) {
+                resized = icon.getImage().getScaledInstance(81, 81, Image.SCALE_SMOOTH);
+            }
+            icon = new ImageIcon(resized);
+            iconList.add(icon);
+            iconList.add(icon);
+        }
+        Collections.shuffle(iconList);
+
     }
 
     ActionListener actionListenerT = new ActionListener() {
@@ -423,8 +416,10 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evt) {
+            count++;
             try {
-
+                timer.setInitialDelay(1000);
+                timer.start();
                 if (diffChosen.equals("hard")) {
                     movesRem.setText("Moves remaining: " + moves);
                 } else {
@@ -442,21 +437,25 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                         System.out.println("icon n:  " + button.getIcon());
                         if (selected1 == null) {
                             selected1 = button;
-                            selected1.removeActionListener(this);
+                            selected1.removeActionListener(actionListener);
                         } else {
                             selected2 = button;
-                            selected2.removeActionListener(this);
+                            selected2.removeActionListener(actionListener);
                         }
                         checkIcons();
                         break;
                     }
                 }
-                timer.setInitialDelay(1000);
-                timer.start();
-
             } catch (Exception ex) {
 
             }
+        }
+    };
+
+    ActionListener actionListenerN = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent evn) {
+            System.out.println("new game");          
         }
     };
 
