@@ -49,7 +49,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     public Game() {
         initComponents();
         AddListen();
-        Timer timer;
+        //Timer timer;
         timerPause.addActionListener(actionListenerT);
         timerPause.setSelected(false);
         labelEnd.setText("Choose your game!");
