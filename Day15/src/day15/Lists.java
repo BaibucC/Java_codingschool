@@ -136,19 +136,13 @@ public class Lists extends javax.swing.JPanel {
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
         text = textField.getText();
-        number = Integer.valueOf(text);
+        
         try {
-            
+          number = Integer.valueOf(text);  
             if (!text.isEmpty()) {
                 list1.add(text);
                 numbers.add(number);
                 array = new int[numbers.size()];
-//                for (int i = 0; i < list1.getItemCount(); i++) {
-//                    array[i] = number;
-//                    label2.setText(i + " : " + String.valueOf(array[i]));
-//                    System.out.println(i + "  list1:" + list1.getItem(i) + "  numbers:" + numbers.get(i) + "  array:" + array[i]);
-//                }
-
                 for (int item : numbers) {
                     array[numbers.indexOf(item)] = item;
                 }
@@ -187,32 +181,9 @@ public class Lists extends javax.swing.JPanel {
         if (numbers.isEmpty()) {
             label.setText("Saraksts ir tukšs!");
         }
-        //uzd = paņem sarakstu, uztaisa jaunu pogu, kad saraksts ir gatavs, sakārto augošā secībā no mazākā uz lielāko
-
-//        for (int i = 0; i < list1.getItemCount(); i++) {
-//            int num = Integer.valueOf(list1.getItem(i));
-//            sum = sum + num;
-//        }
-//        double average = sum / list1.getItemCount();
-//        label.setText(String.valueOf(average));
-//
-//        if (list1.getItemCount() == 0) {
-//            label.setText("Saraksts ir tukšs!");
-//        }
     }//GEN-LAST:event_averageActionPerformed
     
     void bubbleSort(int arr[]) {
-//        int n = arr.length;
-//        for (int i = 0; i < n - 1; i++) {
-//            for (int j = 0; j < n - i - 1; j++) {
-//                if (arr[j] > arr[j + 1]) {
-//                    // swap temp and arr[i] 
-//                    int temp = arr[j];
-//                    arr[j] = arr[j + 1];
-//                    arr[j + 1] = temp;
-//                }
-//            }
-//        }
         int n = arr.length;
         int temp = 0;
         for (int i = 0; i < n; i++) {
