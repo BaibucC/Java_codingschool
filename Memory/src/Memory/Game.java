@@ -96,22 +96,26 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         panelGameChose = new javax.swing.JPanel();
         labelDifficulty = new javax.swing.JLabel();
         labelSize = new javax.swing.JLabel();
-        labelImages = new javax.swing.JLabel();
-        imPhotos = new javax.swing.JToggleButton();
-        imClipart = new javax.swing.JToggleButton();
-        imIcons = new javax.swing.JToggleButton();
         newGame = new javax.swing.JButton();
         diffNormal = new javax.swing.JToggleButton();
         diffHard = new javax.swing.JToggleButton();
         sizeMedium = new javax.swing.JToggleButton();
         sizeLarge = new javax.swing.JToggleButton();
+        imPhotos = new javax.swing.JToggleButton();
+        imClipart = new javax.swing.JToggleButton();
+        imIcons = new javax.swing.JToggleButton();
         panelResults = new javax.swing.JPanel();
-        userList = new javax.swing.JComboBox<>();
-        labelPlayer = new javax.swing.JLabel();
-        labelNewPlayer = new javax.swing.JLabel();
-        newPlayer = new javax.swing.JTextField();
+        labelResults = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultList = new javax.swing.JList<>();
+        resultsTitle = new javax.swing.JLabel();
         addPlayer = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        newPlayer = new javax.swing.JTextField();
+        labelNewPlayer = new javax.swing.JLabel();
+        labelPlayer = new javax.swing.JLabel();
+        userList = new javax.swing.JComboBox<>();
+
+        setForeground(new java.awt.Color(102, 102, 102));
 
         field.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field.setMaximumSize(new java.awt.Dimension(510, 510));
@@ -145,17 +149,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelEnd.setForeground(new java.awt.Color(204, 0, 0));
         labelEnd.setText("Game on!");
 
+        panelGameChose.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
         labelDifficulty.setText("Difficulty:");
 
         labelSize.setText("Size:");
-
-        labelImages.setText("Images:");
-
-        imPhotos.setText("Photos");
-
-        imClipart.setText("ClipArt");
-
-        imIcons.setText("Icons");
 
         newGame.setText("New game");
         newGame.addActionListener(new java.awt.event.ActionListener() {
@@ -172,71 +170,98 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         sizeLarge.setText("Large");
 
+        imPhotos.setText("Photos");
+
+        imClipart.setText("ClipArt");
+
+        imIcons.setText("Icons");
+
         javax.swing.GroupLayout panelGameChoseLayout = new javax.swing.GroupLayout(panelGameChose);
         panelGameChose.setLayout(panelGameChoseLayout);
         panelGameChoseLayout.setHorizontalGroup(
             panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(newGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelGameChoseLayout.createSequentialGroup()
-                    .addComponent(diffNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(10, 10, 10)
-                    .addComponent(diffHard, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(labelDifficulty)
-                .addComponent(labelImages)
-                .addGroup(panelGameChoseLayout.createSequentialGroup()
-                    .addComponent(imPhotos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(imClipart, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(imIcons, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelGameChoseLayout.createSequentialGroup()
-                    .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(sizeMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelSize))
-                    .addGap(10, 10, 10)
-                    .addComponent(sizeLarge, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panelGameChoseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(newGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelGameChoseLayout.createSequentialGroup()
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelDifficulty)
+                            .addComponent(labelSize)
+                            .addComponent(imPhotos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(diffNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sizeMedium, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(imClipart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sizeLarge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(diffHard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imIcons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGameChoseLayout.setVerticalGroup(
             panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameChoseLayout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGameChoseLayout.createSequentialGroup()
-                        .addComponent(labelSize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sizeMedium))
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imPhotos)
+                            .addComponent(imIcons))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSize)
+                            .addComponent(sizeLarge))
+                        .addGap(11, 11, 11)
+                        .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(diffHard)
+                            .addComponent(labelDifficulty)))
                     .addGroup(panelGameChoseLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(sizeLarge)))
+                        .addComponent(imClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sizeMedium)
+                        .addGap(11, 11, 11)
+                        .addComponent(diffNormal)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelDifficulty)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(diffNormal)
-                    .addComponent(diffHard))
-                .addGap(11, 11, 11)
-                .addComponent(labelImages)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelGameChoseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imPhotos)
-                    .addComponent(imClipart)
-                    .addComponent(imIcons))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(newGame, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(newGame, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        userList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userListActionPerformed(evt);
-            }
-        });
+        panelResults.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        labelPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        labelPlayer.setText("PLAYER: ");
+        labelResults.setText("Size: ???   Difficulty: ???    Images: ????");
 
-        labelNewPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        labelNewPlayer.setText("New player: ");
+        jScrollPane1.setViewportView(resultList);
+
+        resultsTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        resultsTitle.setText("Results");
+
+        javax.swing.GroupLayout panelResultsLayout = new javax.swing.GroupLayout(panelResults);
+        panelResults.setLayout(panelResultsLayout);
+        panelResultsLayout.setHorizontalGroup(
+            panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelResultsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(resultsTitle)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelResultsLayout.setVerticalGroup(
+            panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelResultsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resultsTitle)
+                .addGap(7, 7, 7)
+                .addComponent(labelResults)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         addPlayer.setText("ADD");
         addPlayer.addActionListener(new java.awt.event.ActionListener() {
@@ -245,35 +270,17 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             }
         });
 
-        javax.swing.GroupLayout panelResultsLayout = new javax.swing.GroupLayout(panelResults);
-        panelResults.setLayout(panelResultsLayout);
-        panelResultsLayout.setHorizontalGroup(
-            panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelResultsLayout.createSequentialGroup()
-                .addComponent(labelPlayer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelResultsLayout.createSequentialGroup()
-                .addComponent(labelNewPlayer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(newPlayer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addPlayer))
-        );
-        panelResultsLayout.setVerticalGroup(
-            panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelResultsLayout.createSequentialGroup()
-                .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPlayer))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNewPlayer)
-                    .addComponent(newPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addPlayer))
-                .addGap(0, 100, Short.MAX_VALUE))
-        );
+        labelNewPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNewPlayer.setText("New player: ");
+
+        labelPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelPlayer.setText("PLAYER: ");
+
+        userList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -283,37 +290,52 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 .addContainerGap()
                 .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelEnd)
-                    .addComponent(movesRem)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(labelTime)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(timerPause))
-                        .addComponent(panelGameChose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelResults, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelEnd, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(movesRem, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(labelTime)
+                        .addGap(98, 98, 98)
+                        .addComponent(timerPause))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNewPlayer)
+                            .addComponent(labelPlayer))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(newPlayer)
+                            .addComponent(userList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(addPlayer))
+                    .addComponent(panelGameChose, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelGameChose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPlayer))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNewPlayer)
+                            .addComponent(newPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addPlayer))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTime, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(timerPause, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTime)
+                            .addComponent(timerPause))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(movesRem)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelEnd))
                     .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -580,12 +602,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JToggleButton imClipart;
     private javax.swing.JToggleButton imIcons;
     private javax.swing.JToggleButton imPhotos;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDifficulty;
     private javax.swing.JLabel labelEnd;
-    private javax.swing.JLabel labelImages;
     private javax.swing.JLabel labelNewPlayer;
     private javax.swing.JLabel labelPlayer;
+    private javax.swing.JLabel labelResults;
     private javax.swing.JLabel labelSize;
     private javax.swing.JLabel labelTime;
     private javax.swing.JLabel movesRem;
@@ -593,6 +615,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JTextField newPlayer;
     private javax.swing.JPanel panelGameChose;
     private javax.swing.JPanel panelResults;
+    private javax.swing.JList<String> resultList;
+    private javax.swing.JLabel resultsTitle;
     private javax.swing.JToggleButton sizeLarge;
     private javax.swing.JToggleButton sizeMedium;
     private javax.swing.JToggleButton timerPause;

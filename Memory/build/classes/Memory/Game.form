@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="66" green="66" red="66" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -20,21 +25,31 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="field" min="-2" pref="500" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="panelResults" alignment="0" max="32767" attributes="0"/>
                   <Component id="labelEnd" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="movesRem" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="panelResults" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="labelTime" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="timerPause" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="panelGameChose" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelTime" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="timerPause" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelNewPlayer" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlayer" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="newPlayer" max="32767" attributes="0"/>
+                          <Component id="userList" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="addPlayer" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="panelGameChose" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,21 +57,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="panelGameChose" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="userList" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelNewPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="newPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="panelResults" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelTime" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="timerPause" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="timerPause" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="movesRem" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelEnd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="field" min="-2" pref="500" max="-2" attributes="0"/>
@@ -129,69 +153,81 @@
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panelGameChose">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="newGame" alignment="0" max="32767" attributes="0"/>
-              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="diffNormal" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="diffHard" min="-2" pref="80" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="labelDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelImages" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="imPhotos" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="imClipart" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="imIcons" min="-2" pref="80" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sizeMedium" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="labelSize" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="newGame" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labelDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSize" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="imPhotos" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="diffNormal" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="sizeMedium" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="imClipart" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="sizeLarge" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="diffHard" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="imIcons" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="sizeLarge" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="labelSize" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="imPhotos" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="imIcons" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labelSize" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="sizeLarge" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="diffHard" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelDifficulty" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="imClipart" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="sizeMedium" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="diffNormal" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="sizeLarge" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="labelDifficulty" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="diffNormal" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="diffHard" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="labelImages" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="imPhotos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="imClipart" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="imIcons" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="newGame" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,26 +241,6 @@
         <Component class="javax.swing.JLabel" name="labelSize">
           <Properties>
             <Property name="text" type="java.lang.String" value="Size:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelImages">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Images:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="imPhotos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Photos"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="imClipart">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ClipArt"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="imIcons">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Icons"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="newGame">
@@ -255,89 +271,135 @@
             <Property name="text" type="java.lang.String" value="Large"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JToggleButton" name="imPhotos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Photos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="imClipart">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ClipArt"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="imIcons">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Icons"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelResults">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="labelPlayer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="userList" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Component id="labelNewPlayer" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="newPlayer" max="32767" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="addPlayer" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="labelResults" alignment="0" max="32767" attributes="0"/>
+                      <Component id="resultsTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userList" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelNewPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="newPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="addPlayer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                  <Component id="resultsTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Component id="labelResults" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="userList">
+        <Component class="javax.swing.JLabel" name="labelResults">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Size: ???   Difficulty: ???    Images: ????"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userListActionPerformed"/>
-          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelPlayer">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="resultList">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="resultsTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PLAYER: "/>
+            <Property name="text" type="java.lang.String" value="Results"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelNewPlayer">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="New player: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="newPlayer">
-        </Component>
-        <Component class="javax.swing.JButton" name="addPlayer">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ADD"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPlayerActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JSeparator" name="jSeparator1">
+    <Component class="javax.swing.JButton" name="addPlayer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ADD"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPlayerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="newPlayer">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNewPlayer">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="New player: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPlayer">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PLAYER: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="userList">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userListActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
