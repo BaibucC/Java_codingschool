@@ -112,7 +112,6 @@ public class Panel extends javax.swing.JPanel implements ActionListener {
     Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evt) {
-            timer.start();
             labelTime.setText(String.valueOf(count));
             if (count > 0) {
                 count--;
