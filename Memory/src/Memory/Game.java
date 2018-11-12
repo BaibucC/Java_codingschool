@@ -11,14 +11,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.ButtonModel;
 import java.util.Collections;
-import javafx.scene.control.ToggleButton;
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.Timer;
 //import java.util.Timer;
@@ -35,6 +31,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     int n = 4;
     ArrayList<JButton> buttons = new ArrayList<>(n * 2);
     ArrayList<ImageIcon> iconList = new ArrayList<>();
+    //ArrayList<String> userListL = new ArrayList<>();
     JButton selected1 = null;
     JButton selected2 = null;
     boolean isMatch = false;
@@ -109,6 +106,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         sizeMedium = new javax.swing.JToggleButton();
         sizeLarge = new javax.swing.JToggleButton();
         panelResults = new javax.swing.JPanel();
+        userList = new javax.swing.JComboBox<>();
+        labelPlayer = new javax.swing.JLabel();
+        labelNewPlayer = new javax.swing.JLabel();
+        newPlayer = new javax.swing.JTextField();
+        addPlayer = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         field.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         field.setMaximumSize(new java.awt.Dimension(510, 510));
@@ -137,8 +140,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         movesRem.setText("Moves remaining: ");
 
-        labelEnd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelEnd.setForeground(new java.awt.Color(153, 0, 0));
+        labelEnd.setBackground(new java.awt.Color(255, 255, 255));
+        labelEnd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        labelEnd.setForeground(new java.awt.Color(204, 0, 0));
         labelEnd.setText("Game on!");
 
         labelDifficulty.setText("Difficulty:");
@@ -222,15 +226,53 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 .addComponent(newGame, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        userList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userListActionPerformed(evt);
+            }
+        });
+
+        labelPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelPlayer.setText("PLAYER: ");
+
+        labelNewPlayer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNewPlayer.setText("New player: ");
+
+        addPlayer.setText("ADD");
+        addPlayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPlayerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelResultsLayout = new javax.swing.GroupLayout(panelResults);
         panelResults.setLayout(panelResultsLayout);
         panelResultsLayout.setHorizontalGroup(
             panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelResultsLayout.createSequentialGroup()
+                .addComponent(labelPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelResultsLayout.createSequentialGroup()
+                .addComponent(labelNewPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(newPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addPlayer))
         );
         panelResultsLayout.setVerticalGroup(
             panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelResultsLayout.createSequentialGroup()
+                .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlayer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNewPlayer)
+                    .addComponent(newPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPlayer))
+                .addGap(0, 100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -242,19 +284,17 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelEnd)
-                            .addComponent(movesRem)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(labelTime)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(timerPause))
-                                .addComponent(panelGameChose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(labelEnd)
+                    .addComponent(movesRem)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(labelTime)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(timerPause))
+                        .addComponent(panelGameChose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,8 +304,10 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelGameChose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelTime, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(timerPause, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -274,7 +316,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                         .addGap(18, 18, 18)
                         .addComponent(labelEnd))
                     .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -298,6 +340,18 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private void timerPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerPauseActionPerformed
         timer.stop();
     }//GEN-LAST:event_timerPauseActionPerformed
+
+    private void addPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerActionPerformed
+        String player = newPlayer.getText();
+        
+        userList.addItem(player);
+        newPlayer.setText("");
+        userList.setSelectedIndex(userList.getItemCount()-1);
+    }//GEN-LAST:event_addPlayerActionPerformed
+
+    private void userListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userListActionPerformed
+        
+    }//GEN-LAST:event_userListActionPerformed
     private void AddListen() {
         imIcons.addActionListener(actionListenerT);
         imClipart.addActionListener(actionListenerT);
@@ -311,9 +365,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     private void GridLayout() {
         if (diffChosen.equals("hard")) {
-            movesRem.setText("Moves remaining: " + moves);
+            movesRem.setText("Pairs remaining: " + moves);
         } else {
-            movesRem.setText("Moves remaining: unlimited");
+            movesRem.setText("Pairs remaining: unlimited");
         }
         labelTime.setText("Time: " + time);
 
@@ -362,7 +416,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     ActionListener actionListenerT = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evttoggle) {
-            JToggleButton buttonT = (JToggleButton) evttoggle.getSource();
+            //JToggleButton buttonT = (JToggleButton) evttoggle.getSource();
             //boolean selected = button.getModel().isSelected();
             String action = evttoggle.getActionCommand();
 
@@ -417,13 +471,13 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evt) {
             count++;
-            try {
+//            try {
                 timer.setInitialDelay(1000);
                 timer.start();
                 if (diffChosen.equals("hard")) {
-                    movesRem.setText("Moves remaining: " + moves);
+                    movesRem.setText("Pairs remaining: " + moves);
                 } else {
-                    movesRem.setText("Moves remaining: unlimited");
+                    movesRem.setText("Pairs remaining: unlimited");
                 }
                 timerPause.setSelected(false);
                 clearIcons();
@@ -446,9 +500,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                         break;
                     }
                 }
-            } catch (Exception ex) {
-
-            }
+//            } catch (Exception ex) {
+//
+//            }
         }
     };
 
@@ -519,24 +573,30 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addPlayer;
     private javax.swing.JToggleButton diffHard;
     private javax.swing.JToggleButton diffNormal;
     private javax.swing.JPanel field;
     private javax.swing.JToggleButton imClipart;
     private javax.swing.JToggleButton imIcons;
     private javax.swing.JToggleButton imPhotos;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDifficulty;
     private javax.swing.JLabel labelEnd;
     private javax.swing.JLabel labelImages;
+    private javax.swing.JLabel labelNewPlayer;
+    private javax.swing.JLabel labelPlayer;
     private javax.swing.JLabel labelSize;
     private javax.swing.JLabel labelTime;
     private javax.swing.JLabel movesRem;
     private javax.swing.JButton newGame;
+    private javax.swing.JTextField newPlayer;
     private javax.swing.JPanel panelGameChose;
     private javax.swing.JPanel panelResults;
     private javax.swing.JToggleButton sizeLarge;
     private javax.swing.JToggleButton sizeMedium;
     private javax.swing.JToggleButton timerPause;
+    private javax.swing.JComboBox<String> userList;
     // End of variables declaration//GEN-END:variables
 
     @Override
