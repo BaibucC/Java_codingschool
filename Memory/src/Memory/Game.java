@@ -10,12 +10,17 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import javax.swing.ButtonModel;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JToggleButton;
 import javax.swing.Timer;
 //import java.util.Timer;
 
@@ -49,18 +54,20 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     public Game() {
         initComponents();
         AddListen();
+        addInfo();
         //Timer timer;
         timerPause.addActionListener(actionListenerT);
         timerPause.setSelected(false);
-        labelEnd.setText("Choose your game!");
-        
+        labelEnd.setText("Choose your game options!");
+
     }
 
-//!!!!!!!!!!!!!TODO Pārveidot taimera actiolistener
+//Taimeris
     Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evt) {
             int min = 0;
+            count++;
             //TODO var mēģināt saīsināt
             if (count >= 60) {
                 min = count / 60;
@@ -106,14 +113,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         imIcons = new javax.swing.JToggleButton();
         panelResults = new javax.swing.JPanel();
         labelResults = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        resultList = new javax.swing.JList<>();
         resultsTitle = new javax.swing.JLabel();
+        resultList = new java.awt.List();
         addPlayer = new javax.swing.JButton();
         newPlayer = new javax.swing.JTextField();
         labelNewPlayer = new javax.swing.JLabel();
         labelPlayer = new javax.swing.JLabel();
         userList = new javax.swing.JComboBox<>();
+        labelPlayerSelected = new javax.swing.JLabel();
 
         setForeground(new java.awt.Color(102, 102, 102));
 
@@ -234,8 +241,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         labelResults.setText("Size: ???   Difficulty: ???    Images: ????");
 
-        jScrollPane1.setViewportView(resultList);
-
         resultsTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         resultsTitle.setText("Results");
 
@@ -248,7 +253,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 .addGroup(panelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelResults, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(resultsTitle)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(resultList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelResultsLayout.setVerticalGroup(
@@ -258,8 +263,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 .addComponent(resultsTitle)
                 .addGap(7, 7, 7)
                 .addComponent(labelResults)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(resultList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -281,6 +286,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 userListActionPerformed(evt);
             }
         });
+
+        labelPlayerSelected.setText("Player");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -307,7 +314,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                             .addComponent(newPlayer)
                             .addComponent(userList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(addPlayer))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addPlayer)
+                            .addComponent(labelPlayerSelected)))
                     .addComponent(panelGameChose, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
@@ -321,7 +330,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(userList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPlayer))
+                            .addComponent(labelPlayer)
+                            .addComponent(labelPlayerSelected))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNewPlayer)
@@ -348,6 +358,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
         //creates new field
+        //timer.stop();
         count = 0;
         labelEnd.setText("Game on!");
         moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
@@ -355,7 +366,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             System.out.println("empty");
             labelEnd.setText("Choose all game options!");
         } else {
-                GridLayout();
+            GridLayout();
         }
     }//GEN-LAST:event_newGameActionPerformed
 
@@ -365,14 +376,15 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     private void addPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerActionPerformed
         String player = newPlayer.getText();
-        
         userList.addItem(player);
+
         newPlayer.setText("");
-        userList.setSelectedIndex(userList.getItemCount()-1);
+        userList.setSelectedIndex(userList.getItemCount() - 1);
+        savePlayer();
     }//GEN-LAST:event_addPlayerActionPerformed
 
     private void userListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userListActionPerformed
-        
+        labelPlayerSelected.setText(String.valueOf(userList.getSelectedItem()));
     }//GEN-LAST:event_userListActionPerformed
     private void AddListen() {
         imIcons.addActionListener(actionListenerT);
@@ -382,7 +394,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
-        newGame.addActionListener(actionListenerN);
+        //newGame.addActionListener(actionListenerN);
     }
 
     private void GridLayout() {
@@ -441,49 +453,49 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             //JToggleButton buttonT = (JToggleButton) evttoggle.getSource();
             //boolean selected = button.getModel().isSelected();
             String action = evttoggle.getActionCommand();
-
+//timer.stop();
             switch (action) {
                 case "Hard":
+                    diffHard.setSelected(true);
                     diffNormal.setSelected(false);
                     diffChosen = "hard";
-                    System.out.println("hard");
                     break;
                 case "Normal":
-                    System.out.println("normal");
                     diffChosen = "normal";
+                    diffNormal.setSelected(true);
                     diffHard.setSelected(false);
                     break;
                 case "Medium":
+                    sizeMedium.setSelected(true);
                     sizeLarge.setSelected(false);
-                    System.out.println("medium");
                     sizeChosen = "medium";
                     moves = movesMed;
                     n = 4;
                     break;
                 case "Large":
                     sizeMedium.setSelected(false);
-                    System.out.println("large");
+                    sizeLarge.setSelected(true);
                     sizeChosen = "large";
                     moves = movesLarge;
                     n = 6;
                     break;
                 case "Photos":
                     iconsChosen = "photos";
+                    imPhotos.setSelected(true);
                     imIcons.setSelected(false);
                     imClipart.setSelected(false);
-                    System.out.println("photos");
                     break;
                 case "Icons":
                     iconsChosen = "icons";
                     imClipart.setSelected(false);
                     imPhotos.setSelected(false);
-                    System.out.println("icons");
+                    imIcons.setSelected(true);
                     break;
                 case "ClipArt":
                     iconsChosen = "clipart";
                     imIcons.setSelected(false);
                     imPhotos.setSelected(false);
-                    System.out.println("cliparttttt");
+                    imClipart.setSelected(true);
                     break;
             }
         }
@@ -492,49 +504,44 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evt) {
-            count++;
-//            try {
-                timer.setInitialDelay(1000);
-                timer.start();
-                if (diffChosen.equals("hard")) {
-                    movesRem.setText("Pairs remaining: " + moves);
-                } else {
-                    movesRem.setText("Pairs remaining: unlimited");
-                }
-                timerPause.setSelected(false);
-                clearIcons();
-                JButton button = (JButton) evt.getSource();
+            timerPause.setSelected(false);
+            timer.setInitialDelay(1000);
+            timer.start();
+            if (diffChosen.equals("hard")) {
+                movesRem.setText("Pairs remaining: " + moves);
+            } else {
+                movesRem.setText("Pairs remaining: unlimited");
+            }
 
-                for (JButton btn : buttons) {
-                    if (button == btn) {
-                        System.out.println("icon name:  " + button.getName());
-                        int name2 = Integer.valueOf((button.getName()).replace("b", ""));
-                        button.setIcon(iconList.get(name2));
-                        System.out.println("icon n:  " + button.getIcon());
-                        if (selected1 == null) {
-                            selected1 = button;
-                            selected1.removeActionListener(actionListener);
-                        } else {
-                            selected2 = button;
-                            selected2.removeActionListener(actionListener);
-                        }
-                        checkIcons();
-                        break;
+            clearIcons();
+            JButton button = (JButton) evt.getSource();
+
+            for (JButton btn : buttons) {
+                if (button == btn) {
+                    System.out.println("icon name:  " + button.getName());
+                    int name2 = Integer.valueOf((button.getName()).replace("b", ""));
+                    button.setIcon(iconList.get(name2));
+                    System.out.println("icon n:  " + button.getIcon());
+                    if (selected1 == null) {
+                        selected1 = button;
+                        selected1.removeActionListener(actionListener);
+                    } else {
+                        selected2 = button;
+                        selected2.removeActionListener(actionListener);
                     }
+                    checkIcons();
+                    break;
                 }
-//            } catch (Exception ex) {
-//
-//            }
+            }
         }
     };
 
-    ActionListener actionListenerN = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent evn) {
-            System.out.println("new game");          
-        }
-    };
-
+//    ActionListener actionListenerN = new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent evn) {
+//            System.out.println("new game");          
+//        }
+//    };
     private void clearIcons() {
         if (selected1 != null && selected2 != null) {
             selected1.addActionListener(actionListener);
@@ -581,18 +588,85 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         if (diffChosen.equals("normal")) {
             System.out.println("normal going on");
         }
-//TODO !!!!!!!!!!!!!Nestrādā korekti ??
+
 //checks if every icons is revealed
         for (int i = 0; i < buttons.size(); i++) {
             if (buttons.get(i).getIcon() == null) {
+                System.out.println("tukss");
                 break;
             } else if (i == buttons.size() - 1) {
                 System.out.println("pilns");
                 labelEnd.setText("Completed!");
                 timer.stop();
+                resultList.add(labelTime.getText() + "   Player: " + userList.getSelectedItem());
             }
+
+            //labelTime.getText().
         }
     }
+
+    private void savePlayer() {
+        PrintWriter out;
+        try {
+            out = new PrintWriter("src\\data\\userList.txt");
+            out.println(userList.getItemAt(0));
+            out.println(userList.getItemAt(1));
+            out.println(userList.getItemAt(2));
+            out.println(userList.getItemAt(3));
+            out.println(userList.getItemAt(2));
+            out.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PrintWriter out2;
+        try {
+            out2 = new PrintWriter("src\\data\\resultList.txt");
+            out2.println(resultList.getItem(0));
+            out2.println(resultList.getItem(1));
+            out2.println(resultList.getItem(2));
+            out2.println(resultList.getItem(3));
+            out2.println(resultList.getItem(2));
+            out2.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void addInfo() {
+        BufferedReader input = null;
+        BufferedReader input2 = null;
+        try {
+            input2 = new BufferedReader(new FileReader("src\\data\\resultList.txt"));
+            input = new BufferedReader(new FileReader("src\\data\\userList.txt"));
+            //List<String> strings = new ArrayList<String>();
+            String line = null;
+            String line2 = null;
+            try {
+                while ((line = input.readLine()) != null) {
+                    //strings.add(line);
+                    userList.addItem(line);
+                }
+                while ((line2 = input2.readLine()) != null) {
+                    //strings.add(line);
+                    resultList.add(line2);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException e) {
+            //System.err.println("Error, file " + filePath + " didn't exist.");
+        } finally {
+            try {
+                input.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        //String[] lineArray = strings.toArray(new String[]{});
+        //JComboBox comboBox = new JComboBox(lineArray);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPlayer;
@@ -602,11 +676,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JToggleButton imClipart;
     private javax.swing.JToggleButton imIcons;
     private javax.swing.JToggleButton imPhotos;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDifficulty;
     private javax.swing.JLabel labelEnd;
     private javax.swing.JLabel labelNewPlayer;
     private javax.swing.JLabel labelPlayer;
+    private javax.swing.JLabel labelPlayerSelected;
     private javax.swing.JLabel labelResults;
     private javax.swing.JLabel labelSize;
     private javax.swing.JLabel labelTime;
@@ -615,7 +689,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JTextField newPlayer;
     private javax.swing.JPanel panelGameChose;
     private javax.swing.JPanel panelResults;
-    private javax.swing.JList<String> resultList;
+    private java.awt.List resultList;
     private javax.swing.JLabel resultsTitle;
     private javax.swing.JToggleButton sizeLarge;
     private javax.swing.JToggleButton sizeMedium;
