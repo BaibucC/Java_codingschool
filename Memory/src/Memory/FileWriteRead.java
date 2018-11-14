@@ -98,7 +98,8 @@ public class FileWriteRead {
         }
         Collections.sort(ArrayForSort);
         for (int i = 0; i < ArrayForSort.size(); i++) {
-            list.add(i+1 + ":     " + ArrayForSort.get(i));
+            String number = (i<9)? ("  " + (i+1)) : String.valueOf(i+1);
+            list.add(number + ":     " + ArrayForSort.get(i));
         }
         
     }

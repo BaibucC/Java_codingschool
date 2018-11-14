@@ -60,6 +60,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evt) {
             int min = 0;
+
             count++;
             //timer.start();
             //TODO var mēģināt saīsināt
@@ -350,13 +351,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelEnd)
-                    .addComponent(movesRem)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEnd)
+                            .addComponent(movesRem))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(timerPause, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelTime)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labelTime)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,7 +457,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         //creates new field
 //        time = "00 : 00";
         count = 0;
-
+        time = "00 : 00";
+        timer.stop();
 //        labelTime.setText("Time: " + time);
 //        
 
@@ -520,14 +525,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     }
 
-    ActionListener actionListenerN = new ActionListener(){
+    ActionListener actionListenerN = new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent newgame){
+        public void actionPerformed(ActionEvent newgame) {
             //timer.restart();
-            
+
         }
     };
-    
+
     ActionListener actionListenerT = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evttoggle) {
