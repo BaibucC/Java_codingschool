@@ -4,3 +4,10 @@ Time: 00 : 34     Player: Baiba
 Time: 00 : 32     Player: Baiba
 Time: 00 : 14     Player: Player1
 Time: 00 : 27     Player: Player1
+Time: 00 : 27     Player: zofka
+Time: 00 : 12     Player: zofka
+Time: 00 : 26     Player: Baiba
+Time: 01 : 01     Player: RASA
+Time: 01 : 10     Player: RASA
+Time: 01 : 09     Player: RASA
+Time: 00 : 51     Player: Player1

@@ -149,8 +149,6 @@ public class FileWriteRead {
                 sor.sortArrayList(sortedResultMedium, resultListMedium);
                 sor.sortArrayList(sortedResultLarge, resultListLarge);
 
-                System.out.println(sortedResultMedium);
-
             } catch (IOException ex) {
                 Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -50,6 +50,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         //Timer timer;
         timerPause.addActionListener(actionListenerT);
         timerPause.setSelected(false);
+
         labelEnd.setText("Choose your game options!");
         labelBackground.setIcon(background);
     }
@@ -60,6 +61,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         public void actionPerformed(ActionEvent evt) {
             int min = 0;
             count++;
+            //timer.start();
             //TODO var mēģināt saīsināt
             if (count >= 60) {
                 min = count / 60;
@@ -70,7 +72,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             } else {
                 time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", (count % (min * 60))));
             }
-            System.out.println(time);
             if (count < 3600) {
                 labelTime.setText("Time: " + time);
             } else {
@@ -119,7 +120,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         jPanel4 = new javax.swing.JPanel();
         resultListMedium = new java.awt.List();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(215, 198, 172));
         setForeground(new java.awt.Color(102, 102, 102));
 
         field.setMaximumSize(new java.awt.Dimension(510, 510));
@@ -148,8 +149,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelSize.setText("Size:");
 
         newGame.setBackground(new java.awt.Color(215, 198, 172));
-        newGame.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        newGame.setText("NEW GAME");
+        newGame.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        newGame.setForeground(new java.awt.Color(102, 102, 102));
+        newGame.setText("N E W     G A M E");
         newGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray, new java.awt.Color(51, 51, 51), java.awt.Color.darkGray));
         newGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,8 +451,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
         //creates new field
-        //timer.stop();
+//        time = "00 : 00";
         count = 0;
+
+//        labelTime.setText("Time: " + time);
+//        
+
         labelEnd.setText("Game on!");
         moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
         if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
@@ -488,7 +494,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
-        //newGame.addActionListener(actionListenerN);
+        newGame.addActionListener(actionListenerN);
     }
 
     private void GridLayout() {
@@ -514,6 +520,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     }
 
+    ActionListener actionListenerN = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent newgame){
+            //timer.restart();
+            
+        }
+    };
+    
     ActionListener actionListenerT = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evttoggle) {
@@ -621,19 +635,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 //checks pairs
         if (selected1 != null && selected2 != null) {
             if (selected1.getIcon() == selected2.getIcon()) {
-                System.out.println("match!");
                 isMatch = true;
                 selected1.setEnabled(false);
                 selected2.setEnabled(false);
             }
             if (selected1.getIcon() != selected2.getIcon()) {
-                System.out.println("no match!");
                 isMatch = false;
             }
             if (diffChosen.equals("hard")) {
                 moves--;
             }
-            System.out.println("Sel1: " + selected1.getName() + "  sel2: " + selected2.getName());
         }
 //if moves == 0
         if (diffChosen.equals("hard")) {
