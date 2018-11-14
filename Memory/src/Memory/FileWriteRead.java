@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -89,6 +91,16 @@ public class FileWriteRead {
         }
     }
 
+    public void sortArrayList(ArrayList<String> ArrayForSort, List list){
+        for (int i = 0; i < list.getItemCount() - 1; i++) {
+                    ArrayForSort.add(list.getItem(i));
+                }
+                Collections.sort(ArrayForSort);
+                for (String item : ArrayForSort){
+                    list.add(item);
+                }
+    }
+    
     public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
         BufferedReader input = null;
         BufferedReader input2 = null;
@@ -101,6 +113,8 @@ public class FileWriteRead {
             String line = null;
             String line2 = null;
             String line3 = null;
+            ArrayList<String> sortedResultLarge = new ArrayList<>();
+            ArrayList<String> sortedResultMedium = new ArrayList<>();
             try {
                 while ((line = input.readLine()) != null) {
                     //strings.add(line);
@@ -108,14 +122,21 @@ public class FileWriteRead {
                 }
                 while ((line2 = input2.readLine()) != null) {
                     //strings.add(line);
-                    resultListLarge.add(line2);
+                    sortedResultLarge.add(line2);
                     System.out.println("lasa resultL");
                 }
                 while ((line3 = input3.readLine()) != null) {
-                    //strings.add(line);
-                    resultListMedium.add(line3);
+                    sortedResultMedium.add(line3);
                     System.out.println("lasa resultM");
                 }
+                
+                FileWriteRead sorrr = new FileWriteRead();
+                sorrr.sortArrayList(sortedResultMedium, resultListMedium);
+                sorrr.sortArrayList(sortedResultLarge, resultListLarge);
+                
+                
+                System.out.println(sortedResultMedium);
+
             } catch (IOException ex) {
                 Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
             }

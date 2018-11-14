@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.Timer;
@@ -29,7 +30,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     JButton selected1 = null;
     JButton selected2 = null;
     boolean isMatch = false;
-    String time = "0 : 0";
+    String time = "00 : 00";
     int moves = 0;
     int movesMed = 12;
     int movesLarge = 35;
@@ -64,10 +65,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             }
             if (count < 60) {
                 min = 0;
-                time = String.valueOf(min) + " : " + String.valueOf(count);
+                time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", count));
             } else {
-                time = String.valueOf(min) + " : " + String.valueOf(count % (min * 60));
+                time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", (count % (min * 60))));
             }
+            System.out.println(time);
             if (count < 3600) {
                 labelTime.setText("Time: " + time);
             } else {
@@ -376,6 +378,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         jPanel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         resultListLarge.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        resultListLarge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultListLargeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -439,7 +446,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         tabbed2.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         //clears old field
         field.removeAll();
@@ -478,6 +485,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         removePlayer.removePlayer(String.valueOf(userList.getSelectedItem()));
         userList.removeItemAt(rem);
     }//GEN-LAST:event_deletePlayerActionPerformed
+
+    private void resultListLargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultListLargeActionPerformed
+//        ArrayList<String> sorted = new ArrayList<>();
+//        for (int i = 0; i < resultListMedium.getItemCount()-1; i++){
+//            sorted.add(resultListMedium.getItem(i));
+//        }
+//        Collections.sort(sorted);
+    }//GEN-LAST:event_resultListLargeActionPerformed
     private void AddListen() {
         imIcons.addActionListener(actionListenerT);
         imClipart.addActionListener(actionListenerT);
@@ -584,10 +599,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             JButton button = (JButton) evt.getSource();
             for (JButton btn : buttons) {
                 if (button == btn) {
-                    System.out.println("icon name:  " + button.getName());
                     int name2 = Integer.valueOf((button.getName()).replace("b", ""));
                     button.setIcon(iconList.get(name2));
-                    System.out.println("icon n:  " + button.getIcon());
                     if (selected1 == null) {
                         selected1 = button;
                         selected1.removeActionListener(actionListener);
