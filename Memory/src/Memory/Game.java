@@ -378,11 +378,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         jPanel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         resultListLarge.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        resultListLarge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resultListLargeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -485,14 +480,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         removePlayer.removePlayer(String.valueOf(userList.getSelectedItem()));
         userList.removeItemAt(rem);
     }//GEN-LAST:event_deletePlayerActionPerformed
-
-    private void resultListLargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultListLargeActionPerformed
-//        ArrayList<String> sorted = new ArrayList<>();
-//        for (int i = 0; i < resultListMedium.getItemCount()-1; i++){
-//            sorted.add(resultListMedium.getItem(i));
-//        }
-//        Collections.sort(sorted);
-    }//GEN-LAST:event_resultListLargeActionPerformed
     private void AddListen() {
         imIcons.addActionListener(actionListenerT);
         imClipart.addActionListener(actionListenerT);
@@ -666,7 +653,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             } else if (i == buttons.size() - 1) {
                 labelEnd.setText("Completed! Result saved!");
                 timer.stop();
-                String result = labelTime.getText() + "   Player: " + userList.getSelectedItem();
+                String result = labelTime.getText() + "Player:     " + userList.getSelectedItem();
 
                 if (sizeChosen.equals("medium")) {
                     resultListMedium.add(result);

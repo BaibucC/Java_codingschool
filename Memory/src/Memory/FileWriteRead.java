@@ -96,9 +96,9 @@ public class FileWriteRead {
                     ArrayForSort.add(list.getItem(i));
                 }
                 Collections.sort(ArrayForSort);
-                for (String item : ArrayForSort){
-                    list.add(item);
-                }
+                    for (int i = 1; i < ArrayForSort.size(); i++){
+                        list.add(i + ":     " + ArrayForSort.get(i));
+                    }
     }
     
     public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
@@ -150,19 +150,6 @@ public class FileWriteRead {
             } catch (IOException ex) {
                 Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
             }
-//            try {
-//                input2.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            try {
-//                input3.close();
-//            } catch (IOException ex) {
-//                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-//            }
         }
-
-        //String[] lineArray = strings.toArray(new String[]{});
-        //JComboBox comboBox = new JComboBox(lineArray);
     }
 }
