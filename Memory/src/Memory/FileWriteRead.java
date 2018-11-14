@@ -91,38 +91,62 @@ public class FileWriteRead {
         }
     }
 
-    public void sortArrayList(ArrayList<String> ArrayForSort, List list){
+    public void sortArrayList(ArrayList<String> ArrayForSort, List list) {
         for (int i = 0; i < list.getItemCount() - 1; i++) {
-                    ArrayForSort.add(list.getItem(i));
-                }
-                Collections.sort(ArrayForSort);
-                    for (int i = 1; i < ArrayForSort.size(); i++){
-                        list.add(i + ":     " + ArrayForSort.get(i));
-                    }
+            ArrayForSort.add(list.getItem(i));
+        }
+        Collections.sort(ArrayForSort);
+        for (int i = 0; i < ArrayForSort.size(); i++) {
+            list.add(i+1 + ":     " + ArrayForSort.get(i));
+        }
     }
     
-    public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
-        userList.removeAll();
-        resultListLarge.removeAll();
-        resultListMedium.removeAll();
+    public void userInfo(JComboBox userList) {
         BufferedReader input = null;
-        BufferedReader input2 = null;
-        BufferedReader input3 = null;
         try {
             input = new BufferedReader(new FileReader("src\\data\\userList.txt"));
-            input2 = new BufferedReader(new FileReader("src\\data\\resultListL.txt"));
-            input3 = new BufferedReader(new FileReader("src\\data\\resultListM.txt"));
-
             String line = null;
-            String line2 = null;
-            String line3 = null;
-            ArrayList<String> sortedResultLarge = new ArrayList<>();
-            ArrayList<String> sortedResultMedium = new ArrayList<>();
             try {
                 while ((line = input.readLine()) != null) {
                     //strings.add(line);
                     userList.addItem(line);
                 }
+            } catch (IOException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException e) {
+            //System.err.println("Error, file " + filePath + " didn't exist.");
+        } finally {
+            try {
+                input.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
+//        userList.removeAll();
+        resultListLarge.removeAll();
+        resultListMedium.removeAll();
+//        BufferedReader input = null;
+        BufferedReader input2 = null;
+        BufferedReader input3 = null;
+        try {
+//            input = new BufferedReader(new FileReader("src\\data\\userList.txt"));
+            input2 = new BufferedReader(new FileReader("src\\data\\resultListL.txt"));
+            input3 = new BufferedReader(new FileReader("src\\data\\resultListM.txt"));
+
+//            String line = null;
+            String line2 = null;
+            String line3 = null;
+            ArrayList<String> sortedResultLarge = new ArrayList<>();
+            ArrayList<String> sortedResultMedium = new ArrayList<>();
+            try {
+//                while ((line = input.readLine()) != null) {
+//                    //strings.add(line);
+//                    userList.addItem(line);
+//                }
                 while ((line2 = input2.readLine()) != null) {
                     //strings.add(line);
                     sortedResultLarge.add(line2);
@@ -132,12 +156,11 @@ public class FileWriteRead {
                     sortedResultMedium.add(line3);
                     System.out.println("lasa resultM");
                 }
-                
+
                 FileWriteRead sorrr = new FileWriteRead();
                 sorrr.sortArrayList(sortedResultMedium, resultListMedium);
                 sorrr.sortArrayList(sortedResultLarge, resultListLarge);
-                
-                
+
                 System.out.println(sortedResultMedium);
 
             } catch (IOException ex) {
@@ -147,7 +170,7 @@ public class FileWriteRead {
             //System.err.println("Error, file " + filePath + " didn't exist.");
         } finally {
             try {
-                input.close();
+//                input.close();
                 input2.close();
                 input3.close();
             } catch (IOException ex) {

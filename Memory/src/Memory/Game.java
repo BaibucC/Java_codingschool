@@ -44,8 +44,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     public Game() {
         initComponents();
         AddListen();
-        FileWriteRead addInfo2 = new FileWriteRead();
-        addInfo2.addInfo(userList, resultListLarge, resultListMedium);
+        FileWriteRead addInfo = new FileWriteRead();
+        addInfo.addInfo(userList, resultListLarge, resultListMedium);
+        addInfo.userInfo(userList);
         //Timer timer;
         timerPause.addActionListener(actionListenerT);
         timerPause.setSelected(false);
@@ -663,6 +664,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 }
                 FileWriteRead saveResults = new FileWriteRead();
                 saveResults.saveResults(result, sizeChosen);
+//                resultListMedium.removeAll();
+//                resultListLarge.removeAll();
                 saveResults.addInfo(userList, resultListLarge, resultListMedium);
             }
         }
