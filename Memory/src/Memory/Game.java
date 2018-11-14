@@ -653,7 +653,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             } else if (i == buttons.size() - 1) {
                 labelEnd.setText("Completed! Result saved!");
                 timer.stop();
-                String result = labelTime.getText() + "Player:     " + userList.getSelectedItem();
+                String result = labelTime.getText() + "     Player: " + userList.getSelectedItem();
 
                 if (sizeChosen.equals("medium")) {
                     resultListMedium.add(result);
@@ -663,9 +663,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 }
                 FileWriteRead saveResults = new FileWriteRead();
                 saveResults.saveResults(result, sizeChosen);
+                saveResults.addInfo(userList, resultListLarge, resultListMedium);
             }
-
-            //labelTime.getText().
         }
     }
 

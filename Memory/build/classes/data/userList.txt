@@ -1,2 +1,2 @@
-bubu
-amma
+Player1
+Test player

@@ -102,6 +102,9 @@ public class FileWriteRead {
     }
     
     public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
+        userList.removeAll();
+        resultListLarge.removeAll();
+        resultListMedium.removeAll();
         BufferedReader input = null;
         BufferedReader input2 = null;
         BufferedReader input3 = null;
