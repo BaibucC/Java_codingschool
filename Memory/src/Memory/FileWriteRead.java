@@ -89,6 +89,7 @@ public class FileWriteRead {
         } catch (Exception exc) {
             System.out.println("error Saving result");
         }
+        //if (result.equals(ArrayForSort.get(0)))
     }
 
     public void sortArrayList(ArrayList<String> ArrayForSort, List list) {
@@ -99,6 +100,7 @@ public class FileWriteRead {
         for (int i = 0; i < ArrayForSort.size(); i++) {
             list.add(i+1 + ":     " + ArrayForSort.get(i));
         }
+        
     }
     
     public void userInfo(JComboBox userList) {
@@ -108,7 +110,6 @@ public class FileWriteRead {
             String line = null;
             try {
                 while ((line = input.readLine()) != null) {
-                    //strings.add(line);
                     userList.addItem(line);
                 }
             } catch (IOException ex) {
@@ -126,40 +127,27 @@ public class FileWriteRead {
     }
 
     public void addInfo(JComboBox userList, List resultListLarge, List resultListMedium) {
-//        userList.removeAll();
         resultListLarge.removeAll();
         resultListMedium.removeAll();
-//        BufferedReader input = null;
         BufferedReader input2 = null;
         BufferedReader input3 = null;
         try {
-//            input = new BufferedReader(new FileReader("src\\data\\userList.txt"));
             input2 = new BufferedReader(new FileReader("src\\data\\resultListL.txt"));
             input3 = new BufferedReader(new FileReader("src\\data\\resultListM.txt"));
-
-//            String line = null;
             String line2 = null;
             String line3 = null;
             ArrayList<String> sortedResultLarge = new ArrayList<>();
             ArrayList<String> sortedResultMedium = new ArrayList<>();
             try {
-//                while ((line = input.readLine()) != null) {
-//                    //strings.add(line);
-//                    userList.addItem(line);
-//                }
                 while ((line2 = input2.readLine()) != null) {
-                    //strings.add(line);
                     sortedResultLarge.add(line2);
-                    System.out.println("lasa resultL");
                 }
                 while ((line3 = input3.readLine()) != null) {
                     sortedResultMedium.add(line3);
-                    System.out.println("lasa resultM");
                 }
-
-                FileWriteRead sorrr = new FileWriteRead();
-                sorrr.sortArrayList(sortedResultMedium, resultListMedium);
-                sorrr.sortArrayList(sortedResultLarge, resultListLarge);
+                FileWriteRead sor = new FileWriteRead();
+                sor.sortArrayList(sortedResultMedium, resultListMedium);
+                sor.sortArrayList(sortedResultLarge, resultListLarge);
 
                 System.out.println(sortedResultMedium);
 
@@ -170,7 +158,6 @@ public class FileWriteRead {
             //System.err.println("Error, file " + filePath + " didn't exist.");
         } finally {
             try {
-//                input.close();
                 input2.close();
                 input3.close();
             } catch (IOException ex) {

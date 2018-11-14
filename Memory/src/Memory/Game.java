@@ -442,7 +442,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         tabbed2.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         //clears old field
         field.removeAll();
@@ -454,7 +454,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelEnd.setText("Game on!");
         moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
         if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
-            System.out.println("empty");
             labelEnd.setText("Choose all game options!");
         } else {
             GridLayout();
@@ -652,25 +651,31 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             if (buttons.get(i).getIcon() == null) {
                 break;
             } else if (i == buttons.size() - 1) {
-                labelEnd.setText("Completed! Result saved!");
                 timer.stop();
                 String result = labelTime.getText() + "     Player: " + userList.getSelectedItem();
-
-                if (sizeChosen.equals("medium")) {
-                    resultListMedium.add(result);
-                }
-                if (sizeChosen.equals("large")) {
-                    resultListLarge.add(result);
-                }
                 FileWriteRead saveResults = new FileWriteRead();
                 saveResults.saveResults(result, sizeChosen);
-//                resultListMedium.removeAll();
-//                resultListLarge.removeAll();
                 saveResults.addInfo(userList, resultListLarge, resultListMedium);
+                String best = String.valueOf(resultListMedium.getItem(0));
+                if (sizeChosen.equals("medium")) {
+                    best = String.valueOf(resultListMedium.getItem(0));
+                    if (result.equals(best.substring(7))) {
+                        labelEnd.setText("Completed! Best result!");
+                    } else {
+                        labelEnd.setText("Completed! Result saved!");
+                    }
+                }
+                if (sizeChosen.equals("large")) {
+                    if (result.equals(best.substring(7))) {
+                        labelEnd.setText("Completed! Best result!");
+                    } else {
+                        labelEnd.setText("Completed! Result saved!");
+                    }
+                }
+
             }
         }
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPlayer;
