@@ -10,7 +10,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.Timer;
@@ -30,11 +29,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     JButton selected1 = null;
     JButton selected2 = null;
     boolean isMatch = false;
-    String time = "00 : 00";
     int moves = 0;
     int movesMed = 12;
     int movesLarge = 35;
     int count = 0;
+    String time = "00 : 00";
     String iconsChosen = "";
     String diffChosen = "";
     String sizeChosen = "";
@@ -47,10 +46,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         FileWriteRead addInfo = new FileWriteRead();
         addInfo.addInfo(userList, resultListLarge, resultListMedium);
         addInfo.userInfo(userList);
-        //Timer timer;
-        timerPause.addActionListener(actionListenerT);
-        timerPause.setSelected(false);
-
         labelEnd.setText("Choose your game options!");
         labelBackground.setIcon(background);
     }
@@ -60,20 +55,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent evt) {
             int min = 0;
-
             count++;
-            //timer.start();
             //TODO var mēģināt saīsināt
-            if (count >= 60) {
-                min = count / 60;
-            }
-            if (count < 60) {
-                min = 0;
-                time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", count));
-            } else {
-                time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", (count % (min * 60))));
-            }
+            min = (count >= 60) ? (count / 60) : 0;
+
             if (count < 3600) {
+                if (count < 60) {
+                    time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", count));
+                } else {
+                    time = String.valueOf(String.format("%02d", min)) + " : " + String.valueOf(String.format("%02d", (count % (min * 60))));
+                }
                 labelTime.setText("Time: " + time);
             } else {
                 ((Timer) (evt.getSource())).stop();
@@ -151,7 +142,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         newGame.setBackground(new java.awt.Color(215, 198, 172));
         newGame.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        newGame.setForeground(new java.awt.Color(102, 102, 102));
+        newGame.setForeground(new java.awt.Color(51, 51, 51));
         newGame.setText("N E W     G A M E");
         newGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray, new java.awt.Color(51, 51, 51), java.awt.Color.darkGray));
         newGame.addActionListener(new java.awt.event.ActionListener() {
@@ -162,36 +153,43 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         diffNormal.setBackground(new java.awt.Color(215, 198, 172));
         diffNormal.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        diffNormal.setForeground(new java.awt.Color(51, 51, 51));
         diffNormal.setText("Normal");
         diffNormal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         diffHard.setBackground(new java.awt.Color(215, 198, 172));
         diffHard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        diffHard.setForeground(new java.awt.Color(51, 51, 51));
         diffHard.setText("Hard");
         diffHard.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         sizeMedium.setBackground(new java.awt.Color(215, 198, 172));
         sizeMedium.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sizeMedium.setForeground(new java.awt.Color(51, 51, 51));
         sizeMedium.setText("Medium");
         sizeMedium.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         sizeLarge.setBackground(new java.awt.Color(215, 198, 172));
         sizeLarge.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        sizeLarge.setForeground(new java.awt.Color(51, 51, 51));
         sizeLarge.setText("Large");
         sizeLarge.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         imPhotos.setBackground(new java.awt.Color(215, 198, 172));
         imPhotos.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        imPhotos.setForeground(new java.awt.Color(51, 51, 51));
         imPhotos.setText("Photos");
         imPhotos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         imClipart.setBackground(new java.awt.Color(215, 198, 172));
         imClipart.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        imClipart.setForeground(new java.awt.Color(51, 51, 51));
         imClipart.setText("ClipArt");
         imClipart.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
         imIcons.setBackground(new java.awt.Color(215, 198, 172));
         imIcons.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        imIcons.setForeground(new java.awt.Color(51, 51, 51));
         imIcons.setText("Icons");
         imIcons.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
 
@@ -255,6 +253,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
         addPlayer.setBackground(new java.awt.Color(215, 198, 172));
         addPlayer.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        addPlayer.setForeground(new java.awt.Color(51, 51, 51));
         addPlayer.setText("ADD");
         addPlayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
         addPlayer.addActionListener(new java.awt.event.ActionListener() {
@@ -266,15 +265,18 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         newPlayer.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
         labelNewPlayer.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        labelNewPlayer.setForeground(new java.awt.Color(51, 51, 51));
         labelNewPlayer.setText("New player: ");
 
         labelPlayer.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        labelPlayer.setForeground(new java.awt.Color(51, 51, 51));
         labelPlayer.setText("PLAYER: ");
 
         userList.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
         deletePlayer.setBackground(new java.awt.Color(215, 198, 172));
         deletePlayer.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        deletePlayer.setForeground(new java.awt.Color(51, 51, 51));
         deletePlayer.setText("Delete player");
         deletePlayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
         deletePlayer.addActionListener(new java.awt.event.ActionListener() {
@@ -328,10 +330,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelEnd.setText("Game on!");
 
         labelTime.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        labelTime.setForeground(new java.awt.Color(51, 51, 51));
         labelTime.setText("Time: ");
 
         timerPause.setBackground(new java.awt.Color(215, 198, 172));
         timerPause.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        timerPause.setForeground(new java.awt.Color(51, 51, 51));
         timerPause.setSelected(true);
         timerPause.setText("pause");
         timerPause.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.white, java.awt.Color.black, java.awt.Color.lightGray));
@@ -342,7 +346,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         });
 
         movesRem.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        movesRem.setText("Moves remaining: ");
+        movesRem.setForeground(new java.awt.Color(51, 51, 51));
+        movesRem.setText("Pairs remaining: -");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -449,19 +454,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         tabbed2.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         //clears old field
         field.removeAll();
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
         //creates new field
-//        time = "00 : 00";
         count = 0;
         time = "00 : 00";
         timer.stop();
-//        labelTime.setText("Time: " + time);
-//        
-
         labelEnd.setText("Game on!");
         moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
         if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
@@ -477,12 +479,18 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     private void addPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerActionPerformed
         String player = newPlayer.getText();
-        FileWriteRead savePlayer = new FileWriteRead();
-        savePlayer.savePlayer(player);
-        userList.addItem(player);
-        newPlayer.setText("");
-        userList.setSelectedIndex(userList.getItemCount() - 1);
-
+        if (player.contains(" ")) {
+            labelEnd.setText("No white spaces!");
+        } else if (player.length() > 10) {
+            labelEnd.setText("Max 10 symbols");
+        } else {
+            FileWriteRead savePlayer = new FileWriteRead();
+            savePlayer.savePlayer(player);
+            userList.addItem(player);
+            newPlayer.setText("");
+            userList.setSelectedIndex(userList.getItemCount() - 1);
+            labelEnd.setText("Choose your game options!");
+        }
     }//GEN-LAST:event_addPlayerActionPerformed
 
     private void deletePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePlayerActionPerformed
@@ -499,7 +507,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
-        newGame.addActionListener(actionListenerN);
     }
 
     private void GridLayout() {
@@ -519,26 +526,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             buttons.get(i).addActionListener(actionListener);
             buttons.get(i).setBackground(Color.WHITE);
         }
-
         createIcons createIcons = new createIcons();
         createIcons.createIcons(n, icon, sizeChosen, iconsChosen, iconList);
-
     }
-
-    ActionListener actionListenerN = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent newgame) {
-            //timer.restart();
-
-        }
-    };
 
     ActionListener actionListenerT = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evttoggle) {
-            //JToggleButton buttonT = (JToggleButton) evttoggle.getSource();
             String action = evttoggle.getActionCommand();
-//timer.stop();
             switch (action) {
                 case "Hard":
                     diffHard.setSelected(true);
@@ -546,6 +541,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                     diffChosen = "hard";
                     break;
                 case "Normal":
+                    //diffNormal.setModel(newModel);
                     diffChosen = "normal";
                     diffNormal.setSelected(true);
                     diffHard.setSelected(false);
@@ -599,14 +595,13 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             } else {
                 movesRem.setText("Pairs remaining: unlimited");
             }
-
             clearIcons();
 
             JButton button = (JButton) evt.getSource();
             for (JButton btn : buttons) {
                 if (button == btn) {
-                    int name2 = Integer.valueOf((button.getName()).replace("b", ""));
-                    button.setIcon(iconList.get(name2));
+                    int name = Integer.valueOf((button.getName()).replace("b", ""));
+                    button.setIcon(iconList.get(name));
                     if (selected1 == null) {
                         selected1 = button;
                         selected1.removeActionListener(actionListener);
@@ -628,7 +623,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             if (!isMatch) {//sakrīt
                 selected1.setIcon(null);
                 selected2.setIcon(null);
-
             }
             selected1 = null;
             selected2 = null;
@@ -669,24 +663,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
             } else if (i == buttons.size() - 1) {
                 timer.stop();
                 String result = labelTime.getText() + "     Player: " + userList.getSelectedItem();
-                FileWriteRead saveResults = new FileWriteRead();
-                saveResults.saveResults(result, sizeChosen);
-                saveResults.addInfo(userList, resultListLarge, resultListMedium);
-                String best = String.valueOf(resultListMedium.getItem(0));
-                if (sizeChosen.equals("medium")) {
-                    best = String.valueOf(resultListMedium.getItem(0));
-                    if (result.equals(best.substring(7))) {
-                        labelEnd.setText("Completed! Best result!");
-                    } else {
-                        labelEnd.setText("Completed! Result saved!");
-                    }
-                }
-                if (sizeChosen.equals("large")) {
-                    if (result.equals(best.substring(7))) {
-                        labelEnd.setText("Completed! Best result!");
-                    } else {
-                        labelEnd.setText("Completed! Result saved!");
-                    }
+                FileWriteRead results = new FileWriteRead();
+                results.saveResults(result, sizeChosen);
+                results.addInfo(userList, resultListLarge, resultListMedium);
+                String best = "";
+
+                best = (sizeChosen.equals("medium")) ? resultListMedium.getItem(0) : resultListLarge.getItem(0);
+                if (result.equals(best.substring(9))) {
+                    labelEnd.setText("Completed! Best result!");
+                } else {
+                    labelEnd.setText("Completed! Result saved!");
                 }
 
             }
