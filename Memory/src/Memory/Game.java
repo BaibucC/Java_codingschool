@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,10 +43,14 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     public Game() {
         initComponents();
-        AddListen();
         FileWriteRead addInfo = new FileWriteRead();
-        addInfo.addInfo(userList, resultListLarge, resultListMedium);
-        addInfo.userInfo(userList);
+        try {
+            addInfo.addInfo(userList, resultListLarge, resultListMedium);
+            addInfo.userInfo(userList);
+        } catch (Exception files) {
+            addInfo.createFiles();
+        }
+        AddListen();
         labelEnd.setText("Choose your game options!");
         labelBackground.setIcon(background);
     }
@@ -510,7 +515,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
-        
+
     }
 
     private void GridLayout() {
@@ -522,9 +527,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelTime.setText("Time: " + time);
 
 //creates field and addds buttons from arraylist   
-        
         field.setLayout(new GridLayout(n, n));
-        
+
         for (int i = 0; i < n * n; i++) {
             buttons.add(new JButton());
             buttons.get(i).setName("b" + i);

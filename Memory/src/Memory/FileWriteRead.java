@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.logging.Level;
@@ -24,6 +25,17 @@ import javax.swing.JComboBox;
  * @author Baiba
  */
 public class FileWriteRead {
+
+    public void createFiles() {
+        try {
+            PrintWriter writer = new PrintWriter("src\\data\\userList.txt", "UTF-8");
+            writer = new PrintWriter("src\\data\\resultListL.txt", "UTF-8");
+            writer = new PrintWriter("src\\data\\resultListM.txt", "UTF-8");
+            writer.close();
+        } catch (Exception exf) {
+            System.out.println("File creation failed");
+        }
+    }
 
     public void savePlayer(String player) {
         File myFile = new File("src\\data\\userList.txt");
@@ -85,11 +97,10 @@ public class FileWriteRead {
             bw.write(result);
             bw.newLine();
             bw.close();
-            //fw.close();
+            fw.close();
         } catch (Exception exc) {
             System.out.println("error Saving result");
         }
-        //if (result.equals(ArrayForSort.get(0)))
     }
 
     public void sortArrayList(ArrayList<String> ArrayForSort, List list) {
@@ -98,12 +109,12 @@ public class FileWriteRead {
         }
         Collections.sort(ArrayForSort);
         for (int i = 0; i < ArrayForSort.size(); i++) {
-            String number = (i<9)? ("  " + (i+1)) : String.valueOf(i+1);
+            String number = (i < 9) ? ("  " + (i + 1)) : String.valueOf(i + 1);
             list.add(number + ":     " + ArrayForSort.get(i));
         }
-        
+
     }
-    
+
     public void userInfo(JComboBox userList) {
         BufferedReader input = null;
         try {
@@ -117,7 +128,7 @@ public class FileWriteRead {
                 Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (FileNotFoundException e) {
-            //System.err.println("Error, file " + filePath + " didn't exist.");
+            System.err.println("Error, file didn't exist.");
         } finally {
             try {
                 input.close();
