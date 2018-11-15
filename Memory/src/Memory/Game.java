@@ -19,8 +19,7 @@ import javax.swing.Timer;
  *
  * @author Baiba
  */
-public class Game extends javax.swing.JPanel implements ActionListener {
-
+public class Game extends javax.swing.JPanel implements ActionListener {   
     /**
      * Creates new form panel2
      */
