@@ -34,7 +34,7 @@
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Component id="tabbed2" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -42,7 +42,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="field" min="-2" pref="500" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="panelGameChose" min="-2" max="-2" attributes="0"/>
@@ -51,7 +51,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="tabbed2" min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="tabbed2" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -113,19 +113,19 @@
                       <Component id="newGame" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelDifficulty" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSize" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="imPhotos" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="labelSize" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelDifficulty" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="diffNormal" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="sizeMedium" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="imClipart" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="imClipart" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="sizeLarge" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="diffHard" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
@@ -145,25 +145,27 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="imPhotos" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="imIcons" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="imIcons" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="imClipart" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelSize" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="sizeLarge" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="sizeLarge" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="diffHard" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="sizeMedium" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="labelSize" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="diffHard" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="diffNormal" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="labelDifficulty" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="imClipart" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="sizeMedium" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Component id="diffNormal" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -179,6 +181,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="0"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Difficulty:"/>
           </Properties>
         </Component>
@@ -187,21 +190,22 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="0"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Size:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="newGame">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ac" green="c6" red="d7" type="rgb"/>
+              <Color blue="4e" green="67" red="92" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="N E W     G A M E"/>
+            <Property name="text" type="java.lang.String" value="LOAD GAME"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder>
@@ -220,7 +224,7 @@
         <Component class="javax.swing.JToggleButton" name="diffNormal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ac" green="c6" red="d7" type="rgb"/>
+              <Color blue="6d" green="8f" red="a4" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="1"/>
@@ -243,7 +247,7 @@
         <Component class="javax.swing.JToggleButton" name="diffHard">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ac" green="c6" red="d7" type="rgb"/>
+              <Color blue="6d" green="8f" red="a4" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="1"/>
@@ -266,7 +270,7 @@
         <Component class="javax.swing.JToggleButton" name="sizeMedium">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ac" green="c6" red="d7" type="rgb"/>
+              <Color blue="97" green="b5" red="c8" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="1"/>
@@ -289,7 +293,7 @@
         <Component class="javax.swing.JToggleButton" name="sizeLarge">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ac" green="c6" red="d7" type="rgb"/>
+              <Color blue="97" green="b5" red="c8" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="12" style="1"/>
@@ -406,15 +410,15 @@
                       <Component id="labelNewPlayer" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="labelPlayer" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="userList" pref="112" max="32767" attributes="0"/>
-                      <Component id="newPlayer" max="32767" attributes="0"/>
+                      <Component id="userList" max="32767" attributes="0"/>
+                      <Component id="newPlayer" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="addPlayer" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="deletePlayer" max="32767" attributes="0"/>
+                      <Component id="addPlayer" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -454,7 +458,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ADD"/>
+            <Property name="text" type="java.lang.String" value="Add"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder>
@@ -490,7 +494,7 @@
         <Component class="javax.swing.JLabel" name="labelPlayer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="12" style="1"/>
+              <Font name="SansSerif" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -501,7 +505,7 @@
         <Component class="javax.swing.JComboBox" name="userList">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SansSerif" size="12" style="0"/>
+              <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -522,7 +526,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Delete player"/>
+            <Property name="text" type="java.lang.String" value="Delete"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder>
@@ -699,7 +703,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="resultListLarge" alignment="1" pref="103" max="32767" attributes="0"/>
+                  <Component id="resultListLarge" alignment="1" pref="107" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -730,7 +734,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="resultListMedium" alignment="1" pref="103" max="32767" attributes="0"/>
+                  <Component id="resultListMedium" alignment="1" pref="107" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

@@ -48,7 +48,7 @@ public class FileWriteRead {
             bw.write(player);
             bw.newLine();
             bw.close();
-            //fw.close();
+            fw.close();
         } catch (Exception exc) {
             System.out.println(exc);
         }
