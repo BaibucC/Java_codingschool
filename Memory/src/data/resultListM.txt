@@ -1,5 +1,4 @@
 Time: 00 : 54     Player: Player1
-Time: 00 : 40     Player: Test player
 Time: 00 : 34     Player: Baiba
 Time: 00 : 32     Player: Baiba
 Time: 00 : 14     Player: Player1
@@ -13,3 +12,6 @@ Time: 01 : 09     Player: RASA
 Time: 00 : 51     Player: Player1
 Time: 00 : 14     Player: Baiba
 Time: 00 : 20     Player: Baiba
+Time: 00 : 15     Player: testplayer
+Time: 00 : 12     Player: testplayer
+Time: 00 : 17     Player: Baiba

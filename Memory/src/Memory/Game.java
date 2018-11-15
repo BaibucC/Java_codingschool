@@ -19,7 +19,8 @@ import javax.swing.Timer;
  *
  * @author Baiba
  */
-public class Game extends javax.swing.JPanel implements ActionListener {   
+public class Game extends javax.swing.JPanel implements ActionListener {
+
     /**
      * Creates new form panel2
      */
@@ -30,8 +31,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     JButton selected2 = null;
     boolean isMatch = false;
     int moves = 0;
-    int movesMed = 12;
-    int movesLarge = 35;
     int count = 0;
     String time = "00 : 00";
     String iconsChosen = "";
@@ -470,16 +469,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
         //creates new field
-        count = 0;
-        time = "00 : 00";
-        timer.stop();
-        labelEnd.setText("Game on!");
-
         if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
             labelEnd.setText("Choose all game options!");
         } else {
-            moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
+            moves = (sizeChosen.equals("medium")) ? 12 : 35;
+            n = (sizeChosen.equals("medium")) ? 4 : 6;
             GridLayout();
+            count = 0;
+            time = "00 : 00";
+            timer.stop();
+            labelEnd.setText("Game on!");
         }
     }//GEN-LAST:event_newGameActionPerformed
 
@@ -489,7 +488,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
 
     private void addPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerActionPerformed
         String player = newPlayer.getText();
-        if (player.contains(" ")) {
+        if (player.isEmpty()) {
+            labelEnd.setText("Enter player name!");
+        } else if (player.contains(" ")) {
             labelEnd.setText("No white spaces!");
         } else if (player.length() > 10) {
             labelEnd.setText("Max 10 symbols");
@@ -517,7 +518,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
-
     }
 
     private void GridLayout() {
@@ -528,7 +528,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         }
         labelTime.setText("Time: " + time);
 
-//creates field and addds buttons from arraylist   
+//creates field and adds buttons from arraylist   
         field.setLayout(new GridLayout(n, n));
 
         for (int i = 0; i < n * n; i++) {
@@ -562,16 +562,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                     sizeLarge.setSelected(false);
                     tabbed2.setSelectedIndex(1);
                     sizeChosen = "medium";
-                    moves = movesMed;
-                    n = 4;
                     break;
                 case "Large":
                     sizeMedium.setSelected(false);
                     sizeLarge.setSelected(true);
                     tabbed2.setSelectedIndex(0);
                     sizeChosen = "large";
-                    moves = movesLarge;
-                    n = 6;
                     break;
                 case "Photos":
                     iconsChosen = "photos";
@@ -677,15 +673,12 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 FileWriteRead results = new FileWriteRead();
                 results.saveResults(result, sizeChosen);
                 results.addInfo(userList, resultListLarge, resultListMedium);
-                String best = "";
-
-                best = (sizeChosen.equals("medium")) ? resultListMedium.getItem(0) : resultListLarge.getItem(0);
+                String best = (sizeChosen.equals("medium")) ? resultListMedium.getItem(0) : resultListLarge.getItem(0);
                 if (result.equals(best.substring(9))) {
                     labelEnd.setText("Completed! Best result!");
                 } else {
                     labelEnd.setText("Completed! Result saved!");
                 }
-
             }
         }
     }
