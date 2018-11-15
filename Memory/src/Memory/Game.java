@@ -458,6 +458,8 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         //clears old field
         field.removeAll();
+        field.invalidate();
+        field.revalidate();
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
         //creates new field
@@ -465,10 +467,11 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         time = "00 : 00";
         timer.stop();
         labelEnd.setText("Game on!");
-        moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
+
         if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
             labelEnd.setText("Choose all game options!");
         } else {
+            moves = (sizeChosen.equals("medium")) ? movesMed : movesLarge;
             GridLayout();
         }
     }//GEN-LAST:event_newGameActionPerformed
@@ -507,6 +510,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         diffNormal.addActionListener(actionListenerT);
         sizeLarge.addActionListener(actionListenerT);
         sizeMedium.addActionListener(actionListenerT);
+        
     }
 
     private void GridLayout() {
@@ -518,7 +522,9 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         labelTime.setText("Time: " + time);
 
 //creates field and addds buttons from arraylist   
+        
         field.setLayout(new GridLayout(n, n));
+        
         for (int i = 0; i < n * n; i++) {
             buttons.add(new JButton());
             buttons.get(i).setName("b" + i);
@@ -541,7 +547,6 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                     diffChosen = "hard";
                     break;
                 case "Normal":
-                    //diffNormal.setModel(newModel);
                     diffChosen = "normal";
                     diffNormal.setSelected(true);
                     diffHard.setSelected(false);
@@ -620,7 +625,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         if (selected1 != null && selected2 != null) {
             selected1.addActionListener(actionListener);
             selected2.addActionListener(actionListener);
-            if (!isMatch) {//sakrīt
+            if (!isMatch) {
                 selected1.setIcon(null);
                 selected2.setIcon(null);
             }
