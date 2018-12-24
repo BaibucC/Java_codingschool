@@ -19,21 +19,21 @@ public class createIcons {
     for (int i = 0; i < n * n / 2; i++) {
             switch (iconsChosen) {
                 case "photos":
-                    icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
-                    icon = new ImageIcon("src\\images\\photos\\icon" + i + ".jpg");
+                    icon = new ImageIcon(this.getClass().getResource("/images/photos/icon" + i + ".jpg"));
+                    icon = new ImageIcon(this.getClass().getResource("/images/photos/icon" + i + ".jpg"));
                     break;
                 case "clipart":
-                    icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
-                    icon = new ImageIcon("src\\images\\clipart\\icon" + i + ".jpg");
+                    icon = new ImageIcon(this.getClass().getResource("/images/clipart/icon" + i + ".jpg"));
+                    icon = new ImageIcon(this.getClass().getResource("/images/clipart/icon" + i + ".jpg"));
                     break;
                 case "icons":
-                    icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
-                    icon = new ImageIcon("src\\images\\icons\\icon" + i + ".jpg");
+                    icon = new ImageIcon(this.getClass().getResource("/images/icons/icon" + i + ".jpg"));
+                    icon = new ImageIcon(this.getClass().getResource("/images/icons/icon" + i + ".jpg"));
                     break;
             }
             Image resized = icon.getImage();
             if (sizeChosen.equals("medium")) {
-                resized = icon.getImage().getScaledInstance(122, 122, Image.SCALE_SMOOTH);
+                resized = icon.getImage().getScaledInstance(123, 123, Image.SCALE_SMOOTH);
             }
             if (sizeChosen.equals("large")) {
                 resized = icon.getImage().getScaledInstance(81, 81, Image.SCALE_SMOOTH);

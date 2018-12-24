@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,16 +36,21 @@ public class Game extends javax.swing.JPanel implements ActionListener {
     String diffChosen = "";
     String sizeChosen = "";
     ImageIcon icon;
-    ImageIcon background = new ImageIcon("src\\images\\bg.jpg");
+    ImageIcon background = new ImageIcon(this.getClass().getResource("/images/bg.jpg"));
 
     public Game() {
         initComponents();
         FileWriteRead addInfo = new FileWriteRead();
+        addInfo.createDirectory();
         try {
-            addInfo.addInfo(userList, resultListLarge, resultListMedium);
-            addInfo.userInfo(userList);
+            addInfo.addInfo(resultListLarge, resultListMedium);
         } catch (Exception files) {
             addInfo.createFiles();
+        }
+        try {
+            addInfo.userInfo(userList);
+        } catch (Exception files) {
+            addInfo.createUserFile();
         }
         AddListen();
         labelEnd.setText("Choose your game options!");
@@ -468,15 +472,16 @@ public class Game extends javax.swing.JPanel implements ActionListener {
         field.revalidate();
         buttons.removeAll(buttons);
         iconList.removeAll(iconList);
+        time = "00 : 00";
         //creates new field
-        if (diffChosen.isEmpty() || sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
+        if (sizeChosen.isEmpty() || iconsChosen.isEmpty()) {
             labelEnd.setText("Choose all game options!");
+        } else if (userList.getItemCount()==0) {
+            labelEnd.setText("Create user!");
         } else {
-            moves = (sizeChosen.equals("medium")) ? 12 : 35;
             n = (sizeChosen.equals("medium")) ? 4 : 6;
             GridLayout();
             count = 0;
-            time = "00 : 00";
             timer.stop();
             labelEnd.setText("Game on!");
         }
@@ -672,7 +677,7 @@ public class Game extends javax.swing.JPanel implements ActionListener {
                 String result = labelTime.getText() + "     Player: " + userList.getSelectedItem();
                 FileWriteRead results = new FileWriteRead();
                 results.saveResults(result, sizeChosen);
-                results.addInfo(userList, resultListLarge, resultListMedium);
+                results.addInfo(resultListLarge, resultListMedium);
                 String best = (sizeChosen.equals("medium")) ? resultListMedium.getItem(0) : resultListLarge.getItem(0);
                 if (result.equals(best.substring(9))) {
                     labelEnd.setText("Completed! Best result!");
